@@ -1,0 +1,18 @@
+#pragma once
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 175
+#define TAPPING_TERM_PER_KEY
+#define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
+#define RETRO_TAPPING
+
+#define LEADER_PER_KEY_TIMING
+#define LEADER_TIMEOUT 500
+
+#define COMBO_VARIABLE_LEN
+/* #define COMBO_COUNT 13 */
+#define COMBO_TERM 15
+
+#define MK_3_SPEED
+#define MK_MOMENTARY_ACCEL
