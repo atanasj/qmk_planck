@@ -23,8 +23,8 @@
 // Limits the max. amount of layers to 8 to save firmware memory.
 /* #define LAYER_STATE_8BIT */
 
-/* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 #define MIDI_ADVANCED
+/* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 /* #define MIDI_TONE_KEYCODE_OCTAVES 2 */
 
 #define COMBO_VARIABLE_LEN
@@ -46,3 +46,7 @@
 
 #define MK_3_SPEED
 #define MK_MOMENTARY_ACCEL
+
+#define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_LAYERS
+/* #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF */

@@ -33,9 +33,9 @@ enum planck_layers {
 // KEY DEF SECTION
 // =============================================================================
 
-#define LOWER  LT(_LOWER, KC_LSFT)
+#define LOWER  MO(_LOWER)
 #define NUMPAD LT(_NL, KC_SPC)
-#define FN_LAY LT(_FN, KC_SPC)
+#define FN_LAY MO(_FN)
 #define L_VI_D LT(_VI, KC_D)
 #define L_MS_E LT(_MS, KC_E)
 #define M_NUMP MO(_NL)
@@ -58,121 +58,75 @@ enum planck_layers {
 // track led status
 // NOTE not sure if this is needed as taken from AP2 config
 bool is_led_on = true;
+// Light LEDs 6 to 9 and 12 to 15 red when caps lock is active. Hard to ignore!
+const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    /* {1, 4, HSV_RED},       // Light 4 LEDs, starting with LED 6 */
+    /* {1, 7, HSV_RED}       // Light 4 LEDs, starting with LED 12 */
+    {6, 4, HSV_RED},       // Light 4 LEDs, starting with LED 6
+    {12, 4, HSV_RED}
+);
+// Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
+const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1, HSV_CYAN}
+);
+// Light LEDs 11 & 12 in purple when keyboard layer 2 is active
+const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 7, HSV_PURPLE}
+);
+// Light LEDs 13 & 14 in green when keyboard layer 3 is active
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 7, HSV_GREEN}
+);
+// Light LEDs 13 & 14 in green when keyboard layer 3 is active
+const rgblight_segment_t PROGMEM my_layer4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 7, HSV_YELLOW}
+);
+// Light LEDs 13 & 14 in green when keyboard layer 3 is active
+const rgblight_segment_t PROGMEM my_layer5_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 7, HSV_PINK}
+);
+// etc..
 
-/* //layer led colors */
-/* void rgb_matrix_indicators_user(void) { */
 
-/* if(IS_LAYER_ON(_LOWER)) { */
-/*   // function keys */
-/*   rgb_matrix_set_color(0, 20, 88, 99); */
-/*   rgb_matrix_set_color(1, 20, 88, 99); */
-/*   rgb_matrix_set_color(2, 20, 88, 99); */
-/*   rgb_matrix_set_color(3, 20, 88, 99); */
-/*   rgb_matrix_set_color(4, 20, 88, 99); */
-/*   rgb_matrix_set_color(5, 20, 88, 99); */
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_capslock_layer,
+    my_layer1_layer,    // Overrides caps lock layer
+    my_layer2_layer,    // Overrides other layers
+    my_layer3_layer,    // Overrides other layers
+    my_layer4_layer,    // Overrides other layers
+    my_layer5_layer     // Overrides other layers
+);
 
-/*   rgb_matrix_set_color(12, 20, 88, 99); */
-/*   rgb_matrix_set_color(13, 20, 88, 99); */
-/*   rgb_matrix_set_color(14, 20, 88, 99); */
-/*   rgb_matrix_set_color(15, 20, 88, 99); */
-/*   rgb_matrix_set_color(16, 20, 88, 99); */
-/*   rgb_matrix_set_color(17, 20, 88, 99); */
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+}
 
-/*   // media controls */
-/*   rgb_matrix_set_color(10, 0, 200, 0); */
-/*   rgb_matrix_set_color(18, 0, 200, 0); */
-/*   rgb_matrix_set_color(19, 0, 200, 0); */
-/*   rgb_matrix_set_color(20, 0, 200, 0); */
-/*   rgb_matrix_set_color(21, 0, 200, 0); */
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.caps_lock);
+    return true;
+}
 
-/*   rgb_matrix_set_color(30, 0, 200, 0); */
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(1, layer_state_cmp(state, _BL));
+    return state;
+}
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(2, layer_state_cmp(state, _VI));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _NL));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _MS));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _FN));
+    return state;
+}
+
+/* void suspend_power_down_user(void) { */
+/*     rgb_matrix_set_suspend_state(true); */
 /* } */
 
-/* if(IS_LAYER_ON(_MD)) { */
-/*   rgb_matrix_set_color_all(255, 0, 0); */
-/* } */
-
-/* if(IS_LAYER_ON(_VI)) { */
-/*   /\* rgb_matrix_set_color_all(0, 50, 50); *\/ */
-/*   rgb_matrix_set_color(6, 10, 50, 50); */
-/*   rgb_matrix_set_color(7, 10, 50, 50); */
-/*   rgb_matrix_set_color(8, 10, 50, 50); */
-/*   rgb_matrix_set_color(9, 10, 50, 50); */
-
-/*   rgb_matrix_set_color(18, 0, 50, 60); */
-/*   rgb_matrix_set_color(19, 0, 50, 60); */
-/*   rgb_matrix_set_color(20, 0, 50, 60); */
-/*   rgb_matrix_set_color(21, 0, 50, 60); */
-
-/*   rgb_matrix_set_color(30, 0, 50, 50); */
-/*   rgb_matrix_set_color(31, 0, 50, 50); */
-/*   rgb_matrix_set_color(32, 0, 50, 50); */
-/*   rgb_matrix_set_color(33, 0, 50, 50); */
-/*   rgb_matrix_set_color(34, 0, 50, 50); */
-/* } */
-
-/* if(IS_LAYER_ON(_NL)) { */
-/*   /\* rgb_matrix_set_color_all(255, 0, 0); *\/ */
-/*   rgb_matrix_set_color(7, 255, 0, 0); */
-/*   rgb_matrix_set_color(8, 255, 0, 0); */
-/*   rgb_matrix_set_color(9, 255, 0, 0); */
-/*   rgb_matrix_set_color(10, 255, 0, 0); */
-
-/*   rgb_matrix_set_color(19, 0, 0, 0); */
-/*   rgb_matrix_set_color(20, 0, 0, 0); */
-/*   rgb_matrix_set_color(21, 0, 0, 0); */
-/*   rgb_matrix_set_color(22, 0, 0, 0); */
-
-/*   rgb_matrix_set_color(31, 255, 0, 0); */
-/*   rgb_matrix_set_color(32, 255, 0, 0); */
-/*   rgb_matrix_set_color(33, 255, 0, 0); */
-/*   rgb_matrix_set_color(34, 255, 0, 0); */
-
-/*   rgb_matrix_set_color(43, 255, 0, 0); */
-/* } */
-/* if(IS_LAYER_ON(_MS)) { */
-/*   rgb_matrix_set_color(6, 5, 89, 45); */
-/*   rgb_matrix_set_color(7, 5, 89, 45); */
-/*   rgb_matrix_set_color(8, 5, 89, 45); */
-/*   rgb_matrix_set_color(9, 5, 89, 45); */
-
-/*   rgb_matrix_set_color(18, 5, 89, 45); */
-/*   rgb_matrix_set_color(19, 5, 89, 45); */
-/*   rgb_matrix_set_color(20, 5, 89, 45); */
-/*   rgb_matrix_set_color(21, 5, 89, 45); */
-
-/*   rgb_matrix_set_color(30, 5, 89, 45); */
-/*   rgb_matrix_set_color(31, 5, 89, 45); */
-/*   rgb_matrix_set_color(32, 5, 89, 45); */
-/*   rgb_matrix_set_color(33, 5, 89, 45); */
-/*   rgb_matrix_set_color(34, 5, 89, 45); */
-/* } */
-/* if(IS_LAYER_ON(_FN)) { */
-/*   /\* rgb_matrix_set_color_all(150, 9, 145); *\/ */
-/*   rgb_matrix_set_color(1, 0, 50, 1.9); */
-/*   rgb_matrix_set_color(2, 0, 50, 1.9); */
-/*   rgb_matrix_set_color(3, 0, 50, 1.9); */
-/*   rgb_matrix_set_color(4, 0, 50, 1.9); */
-
-/*   rgb_matrix_set_color(13, 0, 50, 2.9); */
-/*   rgb_matrix_set_color(14, 0, 50, 2.9); */
-/*   rgb_matrix_set_color(15, 0, 50, 2.9); */
-/*   rgb_matrix_set_color(16, 0, 50, 2.9); */
-/*   rgb_matrix_set_color(17, 0, 50, 2.9); */
-
-/*   rgb_matrix_set_color(24, 0, 50, 3.9); */
-/*   rgb_matrix_set_color(25, 0, 50, 3.9); */
-/*   rgb_matrix_set_color(26, 0, 50, 3.9); */
-
-/* } */
-
-/* //capslock leds */
-/*   if (host_keyboard_led_state().caps_lock) { */
-/*     rgb_matrix_sethsv_noeeprom(HSV_TEAL); */
-/*     /\* rgb_kmatrix_set_color_all(50, 50, 0); *\/ */
-/*   } */
-
+/* void suspend_wakeup_init_user(void) { */
+/*     rgb_matrix_set_suspend_state(false); */
 /* } */
 
 // =============================================================================
@@ -237,7 +191,6 @@ uint8_t cur_dance(qk_tap_dance_state_t *state);
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case LT(_MS,KC_E):
-        return 225;
     case LT(_VI,KC_D):
         return 225;
     case RCTL_T(KC_ENT):
@@ -245,7 +198,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case SL_HLP:
         return 150;
     case KC_LSPO:
-        return 127;
     case KC_RSPC:
         return 127;
     case SEMI_:
@@ -305,13 +257,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, _______, _______, _______, KC_MPLY, _______,
     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX,          XXXXXXX, TG(_MD), XXXXXXX, XXXXXXX, XXXXXXX
+    _______, XXXXXXX, XXXXXXX, _______, XXXXXXX, KC_LALT,          XXXXXXX, TG(_MD), XXXXXXX, XXXXXXX, XXXXXXX
 ),
 [_FN] = LAYOUT_planck_mit(
-    SUSPEND, KC_TILD, KC_GRV,  KC_BSLS, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,
-    XXXXXXX, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,
-    XXXXXXX, KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,          _______, RGB_VAI, RGB_VAD, DEBUG,   RESET
+    SUSPEND, KC_TILD, KC_GRV,  KC_BSLS, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DEBUG, RGB_TOG,
+    KC_BRIU, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,
+    KC_BRID, KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,          _______, _______, RGB_VAI, RGB_VAD,   RESET
 ),
 // NOTE quantum/process_keycode/process_midi.c
 [_MD] = LAYOUT_planck_mit(
