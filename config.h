@@ -1,13 +1,14 @@
 #pragma once
 
 #ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(PLANCK_SOUND)
-    // #define STARTUP_SONG SONG(NO_SOUND)
-
-    /* #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \ */
-    /*                               SONG(COLEMAK_SOUND), \ */
-    /*                               SONG(DVORAK_SOUND) \ */
-    /*                             } */
+#    define STARTUP_SONG SONG(PLANCK_SOUND)
+// #    define STARTUP_SONG SONG(NO_SOUND)
+//////////////////////////////////////////////////////////
+// #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \  //
+//                               SONG(COLEMAK_SOUND), \ //
+//                               SONG(DVORAK_SOUND) \   //
+//                             }                        //
+//////////////////////////////////////////////////////////
 #endif
 
 #undef TAPPING_TERM
@@ -16,6 +17,7 @@
 #define PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
 #define RETRO_TAPPING
+#define RETRO_TAPPING_PER_KEY
 
 #define LEADER_PER_KEY_TIMING
 #define LEADER_TIMEOUT 500
@@ -29,7 +31,7 @@
 
 #define COMBO_VARIABLE_LEN
 /* #define COMBO_COUNT 13 */
-#define COMBO_TERM 15
+#define COMBO_TERM 30
 // Set the mouse settings to a comfortable speed/accuracy trade-off
 // Assume the screen refresh rate is 60 Hz or higher
 // The default is 50. This makes the mouse ~3 times faster and more accurate
@@ -47,6 +49,18 @@
 #define MK_3_SPEED
 #define MK_MOMENTARY_ACCEL
 
-#define RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_LAYERS
-/* #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF */
+#ifdef RGBLIGHT_ENABLE
+#    define RGBLIGHT_LAYERS
+#    define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
+#    define RGBLIGHT_SLEEP
+#    if defined(__AVR__) && !defined(__AVR_AT90USB1286__)
+#        undef RGBLIGHT_ANIMATIONS
+#        define RGBLIGHT_EFFECT_BREATHING
+#        define RGBLIGHT_EFFECT_SNAKE
+#        define RGBLIGHT_EFFECT_KNIGHT
+#    else
+#        define RGBLIGHT_ANIMATIONS
+// #define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS
+// #        define RGBLIGHT_LIMIT_VAL 10
+#    endif
+#endif  // RGBLIGHT_ENABLE
