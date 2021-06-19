@@ -1,8 +1,9 @@
+SRC += muse.c
 COMMAND_ENABLE = no
 CONSOLE_ENABLE = no
-LTO_ENABLE = yes
+LTO_ENABLE = no
 
-VPATH  +=  keyboards/planck/keymaps/atanasj/g/
+VPATH  += keyboards/planck/keymaps/atanasj/g/
 COMBO_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 LEADER_ENABLE = yes

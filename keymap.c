@@ -19,6 +19,7 @@
 
 enum planck_layers {
   _BL,
+  _SL,
   _VI,
   _NL,
   _MS,
@@ -33,12 +34,14 @@ enum planck_layers {
 // KEY DEF SECTION
 // =============================================================================
 
-#define LOWER  MO(_LOWER)
+#define LOWER  LT(_LOWER, KC_LSFT)
 #define NUMPAD LT(_NL, KC_SPC)
+// #define FN_LAY LT(_FN, KC_SPC)
 #define FN_LAY MO(_FN)
 #define L_VI_D LT(_VI, KC_D)
 #define L_MS_E LT(_MS, KC_E)
 #define M_NUMP MO(_NL)
+#define T_SNAK TG(_SL)
 
 #define OS_LCAG OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT))
 #define OS_HYPR OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))
@@ -48,6 +51,12 @@ enum planck_layers {
 #define T_G_TAB LCMD_T(KC_TAB)
 #define T_C_ESC LCTL_T(KC_ESC)
 #define T_A_SPC ALT_T(KC_SPC)
+// #define T_A_UND MT(MOD_LALT,KC_MIN)
+
+#define T_G_BSP RCMD_T(KC_BSPC)
+#define T_C_QUO RCTL_T(KC_QUOT)
+#define T_SG_EN SGUI_T(KC_ENT)
+
 #define TD_SEMI TD(SEMI_)
 #define TD_HELP TD(SL_HLP)
 #define T_SHDOT LSFT_T(KC_PDOT)
@@ -59,38 +68,95 @@ enum planck_layers {
 // =============================================================================
 // LED SECTION
 // =============================================================================
+
+#ifdef RGBLIGHT_ENABLE
 // track led status
-// NOTE not sure if this is needed as taken from AP2 config
 bool is_led_on = true;
 // Light LEDs 6 to 9 and 12 to 15 red when caps lock is active. Hard to ignore!
 const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    /* {1, 4, HSV_RED},       // Light 4 LEDs, starting with LED 6 */
-    /* {1, 7, HSV_RED}       // Light 4 LEDs, starting with LED 12 */
-    {6, 4, HSV_RED},       // Light 4 LEDs, starting with LED 6
-    {12, 4, HSV_RED}
+    {1, 0, HSV_RED},
+    {1, 1, HSV_RED},
+    {1, 2, HSV_RED},
+    {1, 3, HSV_RED},
+    {1, 4, HSV_RED},
+    {1, 5, HSV_RED},
+    {1, 6, HSV_RED},
+    {1, 7, HSV_RED},
+    {1, 8, HSV_RED}
 );
-// Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 1, HSV_CYAN}
+    {0, 0, HSV_CYAN}
 );
 // Light LEDs 11 & 12 in purple when keyboard layer 2 is active
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 7, HSV_PURPLE}
+    {1, 0, HSV_CHARTREUSE},
+    {1, 1, HSV_CHARTREUSE},
+    {1, 2, HSV_CHARTREUSE},
+    {1, 3, HSV_CHARTREUSE},
+    {1, 4, HSV_CHARTREUSE},
+    {1, 5, HSV_CHARTREUSE},
+    {1, 6, HSV_CHARTREUSE},
+    {1, 7, HSV_CHARTREUSE},
+    {1, 8, HSV_CHARTREUSE}
 );
 // Light LEDs 13 & 14 in green when keyboard layer 3 is active
 const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 7, HSV_GREEN}
+    {1, 0, HSV_SPRINGGREEN},
+    {1, 1, HSV_SPRINGGREEN},
+    {1, 2, HSV_SPRINGGREEN},
+    {1, 3, HSV_SPRINGGREEN},
+    {1, 4, HSV_SPRINGGREEN},
+    {1, 5, HSV_SPRINGGREEN},
+    {1, 6, HSV_SPRINGGREEN},
+    {1, 7, HSV_SPRINGGREEN},
+    {1, 8, HSV_SPRINGGREEN}
 );
 // Light LEDs 13 & 14 in green when keyboard layer 3 is active
 const rgblight_segment_t PROGMEM my_layer4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 7, HSV_YELLOW}
+    {1, 0, HSV_GOLDENROD},
+    {1, 1, HSV_GOLDENROD},
+    {1, 2, HSV_GOLDENROD},
+    {1, 3, HSV_GOLDENROD},
+    {1, 4, HSV_GOLDENROD},
+    {1, 5, HSV_GOLDENROD},
+    {1, 6, HSV_GOLDENROD},
+    {1, 7, HSV_GOLDENROD},
+    {1, 8, HSV_GOLDENROD}
 );
 // Light LEDs 13 & 14 in green when keyboard layer 3 is active
 const rgblight_segment_t PROGMEM my_layer5_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 7, HSV_PINK}
+    {1, 0, HSV_PINK},
+    {1, 1, HSV_PINK},
+    {1, 2, HSV_PINK},
+    {1, 3, HSV_PINK},
+    {1, 4, HSV_PINK},
+    {1, 5, HSV_PINK},
+    {1, 6, HSV_PINK},
+    {1, 7, HSV_PINK},
+    {1, 8, HSV_PINK}
 );
-// etc..
-
+const rgblight_segment_t PROGMEM my_layer6_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 0, HSV_MAGENTA},
+    {1, 1, HSV_MAGENTA},
+    {1, 2, HSV_MAGENTA},
+    {1, 3, HSV_MAGENTA},
+    {1, 4, HSV_MAGENTA},
+    {1, 5, HSV_MAGENTA},
+    {1, 6, HSV_MAGENTA},
+    {1, 7, HSV_MAGENTA},
+    {1, 8, HSV_MAGENTA}
+);
+const rgblight_segment_t PROGMEM my_layer7_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 0, HSV_BLUE},
+    {1, 1, HSV_BLUE},
+    {1, 2, HSV_BLUE},
+    {1, 3, HSV_BLUE},
+    {1, 4, HSV_BLUE},
+    {1, 5, HSV_BLUE},
+    {1, 6, HSV_BLUE},
+    {1, 7, HSV_BLUE},
+    {1, 8, HSV_BLUE}
+);
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -99,7 +165,9 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_layer2_layer,    // Overrides other layers
     my_layer3_layer,    // Overrides other layers
     my_layer4_layer,    // Overrides other layers
-    my_layer5_layer     // Overrides other layers
+    my_layer5_layer,    // Overrides other layers
+    my_layer6_layer,    // Overrides other layers
+    my_layer7_layer     // Overrides other layers
 );
 
 void keyboard_post_init_user(void) {
@@ -118,10 +186,12 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(2, layer_state_cmp(state, _VI));
-    rgblight_set_layer_state(3, layer_state_cmp(state, _NL));
-    rgblight_set_layer_state(4, layer_state_cmp(state, _MS));
-    rgblight_set_layer_state(5, layer_state_cmp(state, _FN));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _SL));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _VI));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _NL));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _MS));
+    rgblight_set_layer_state(6, layer_state_cmp(state, _FN));
+    rgblight_set_layer_state(7, layer_state_cmp(state, _MD));
     return state;
 }
 
@@ -132,6 +202,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 /* void suspend_wakeup_init_user(void) { */
 /*     rgb_matrix_set_suspend_state(false); */
 /* } */
+#endif
 
 // =============================================================================
 // MACRO SECTION
@@ -143,25 +214,25 @@ enum macros {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case KC_RSFT:
-        perform_space_cadet(record, KC_RSPC, KC_RSFT, KC_RSFT, KC_0);
-        return false;
-    case SUSPEND:
-        if (record->event.pressed) {
-            if(is_led_on) {
-                is_led_on = false;
-                rgblight_disable();
-                SEND_STRING(SS_LCTL(SS_LGUI("q")) SS_DELAY(999) SS_TAP(X_ESC));
+        case KC_RSFT:
+            perform_space_cadet(record, KC_RSPC, KC_RSFT, KC_RSFT, KC_0);
+            return false;
+        case SUSPEND:
+            if (record->event.pressed) {
+                if (is_led_on) {
+                    is_led_on = false;
+                    rgblight_disable();
+                    SEND_STRING(SS_LCTL(SS_LGUI("q")) SS_DELAY(999) SS_TAP(X_ESC));
+                }
             }
-        }
-        return true;
-    default:
-        if (record->event.pressed) {
-            if(!is_led_on) {
-                is_led_on = true;
-                rgblight_enable();
+            return true;
+        default:
+            if (record->event.pressed) {
+                if (!is_led_on) {
+                    is_led_on = true;
+                    rgblight_enable();
+                }
             }
-        }
     }
     return true;
 }
@@ -188,7 +259,6 @@ enum {
 
 uint8_t cur_dance(qk_tap_dance_state_t *state);
 
-
 // =============================================================================
 // TAPPING TERM PER KEY SECTION
 // =============================================================================
@@ -202,11 +272,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         return 150;
     case KC_LSPO:
     case KC_RSPC:
+    case NUMPAD:
         return 127;
     case SEMI_:
         return 155;
     case FN_LAY:
-        return 75;
+        return 35;
     default:
         return TAPPING_TERM;
     }
@@ -233,9 +304,7 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case ALT_T(KC_SPC):
-            return true;
         case KC_LSPO:
-            return true;
         case KC_RSFT:
             return true;
         default:
@@ -249,13 +318,19 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BL] = LAYOUT_planck_mit(
-    T_G_TAB, KC_Q,     KC_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    RCMD_T(KC_BSPC),
-    T_C_ESC, KC_A,     KC_S,  L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    TD_SEMI, RCTL_T(KC_QUOT),
+    T_G_TAB, KC_Q,     KC_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
+    T_C_ESC, KC_A,     KC_S,  L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
     KC_LSPO, KC_Z,     KC_X,  KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER, M_GA_SPC, NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, SGUI_T(KC_ENT)
+    OS_HYPR, M_GC_ESC, LOWER, M_GA_SPC, NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
+),
+[_SL] = LAYOUT_planck_mit(
+    T_G_TAB, KC_Q,     KC_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
+    T_C_ESC, KC_A,     KC_S,  L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
+    KC_LSPO, KC_Z,     KC_X,  KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
+    OS_HYPR, M_GC_ESC, LOWER, M_GA_SPC, NUMPAD, KC_UNDS,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
 ),
 [_VI] = LAYOUT_planck_mit(
-    _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,  KC_PGUP, KC_END,   XXXXXXX, XXXXXXX,
+    _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,  KC_PGUP, KC_END,   XXXXXXX, T_SNAK,
     _______, KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_F19,  KC_CAPS,
     _______, M_NUMP,  _______, _______, _______, _______, DW_BKWD, KC_BSPC,  KC_DEL,  DW_FRWD,  TD_DEL,  _______,
     _______, _______, _______, _______, _______, _______,          _______,  _______, _______,  _______, _______
@@ -264,7 +339,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
     _______, KC_LGUI, KC_LALT, _______,  T_SHDOT, XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_MINS, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_PSLS, XXXXXXX,
-    _______, XXXXXXX, _______, _______,  _______, _______,          KC_0,    _______, XXXXXXX, XXXXXXX, _______
+    _______, XXXXXXX, _______, _______,  _______, KC_0,             KC_SPC,  _______, XXXXXXX, XXXXXXX, _______
  ),
  [_MS] = LAYOUT_planck_mit(
     KC_ACL0, KC_ACL2, KC_ACL1, _______, KC_R,    XXXXXXX, KC_WH_L, KC_WH_U,    KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
@@ -275,14 +350,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT_planck_mit(
     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, _______, _______, _______, KC_MPLY, _______,
     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, _______, XXXXXXX, KC_LALT,          XXXXXXX, TG(_MD), XXXXXXX, XXXXXXX, _______
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, MU_ON,   MU_OFF,  MU_MOD,
+    _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_LALT,          XXXXXXX, TG(_MD), AU_ON,   AU_OFF,  _______
 ),
 [_FN] = LAYOUT_planck_mit(
-    SUSPEND, KC_TILD, KC_GRV,  KC_BSLS, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DEBUG, RGB_TOG,
-    KC_BRIU, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, XXXXXXX, XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX, _______, XXXXXXX,
-    KC_BRID, KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,          _______, _______, RGB_VAI, RGB_VAD,   RESET
+    SUSPEND, KC_TILD, KC_GRV,  KC_BSLS, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DEBUG,   RGB_TOG,
+    KC_BRIU, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, XXXXXXX, XXXXXXX, KC_LGUI, XXXXXXX, KC_BSPC, _______, XXXXXXX,
+    KC_BRID, KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LSFT,
+    _______, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,          _______, XXXXXXX, RGB_VAI, RGB_VAD, RESET
 ),
 // NOTE quantum/process_keycode/process_midi.c
 [_MD] = LAYOUT_planck_mit(
@@ -293,10 +368,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 };
 
-/* layer_state_t layer_state_set_user(layer_state_t state) { */
-/*   return update_tri_layer_state(state, _LOWER, _FN, _MD); */
-/* } */
-
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//   return update_tri_layer_state(state, _LOWER, _FN, _MD);
+// }
 
 // =============================================================================
 // TAP DANCE SECTION
@@ -355,22 +429,26 @@ void semi_finished(qk_tap_dance_state_t *state, void *user_data) {
     semi_tap_state.state = cur_dance(state);
     switch (semi_tap_state.state) {
     case SINGLE_TAP:
-        register_code(KC_SCLN);
+        register_code(KC_QUOT);
+        // register_code(KC_SCLN);
         break;
     case DOUBLE_TAP:
-        register_code(KC_LSFT);
-        register_code(KC_MINS);
+        register_code(KC_SCLN);
+        // register_code(KC_LSFT);
+        // register_code(KC_MINS);
     }
 }
 
 void semi_reset(qk_tap_dance_state_t *state, void *user_data) {
     switch (semi_tap_state.state) {
     case SINGLE_TAP:
-        unregister_code(KC_SCLN);
+        // unregister_code(KC_SCLN);
+        unregister_code(KC_QUOT);
         break;
     case DOUBLE_TAP:
-        unregister_code(KC_LSFT);
-        unregister_code(KC_MINS);
+        unregister_code(KC_SCLN);
+        // unregister_code(KC_LSFT);
+        // unregister_code(KC_MINS);
     }
     semi_tap_state.state = 0;
 }
@@ -431,9 +509,14 @@ void matrix_scan_user(void) {
         leading = false;
         leader_end();
         // R section
-        SEQ_TWO_KEYS(KC_R, KC_A) {
-            /* needs to a as semi colon is a tap dance key */
-            SEND_STRING(" <-");
+        SEQ_THREE_KEYS(KC_R, KC_F, KC_N) {
+            // negate function
+            SEND_STRING("`%!in%` <- Negate(`%in%`)");
+        }
+        SEQ_TWO_KEYS(KC_R, TD_SEMI) {
+            // needs to a as semi colon is a tap dance key
+            // need to use bscp as first enters semi colon
+            SEND_STRING(SS_TAP(X_BSPC) " <-");
         }
         SEQ_TWO_KEYS(KC_R, KC_P) {
             SEND_STRING(" %>%");

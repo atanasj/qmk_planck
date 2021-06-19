@@ -51,7 +51,7 @@
 
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_LAYERS
-#    define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
+// #    define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #    define RGBLIGHT_SLEEP
 #    if defined(__AVR__) && !defined(__AVR_AT90USB1286__)
 #        undef RGBLIGHT_ANIMATIONS
