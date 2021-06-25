@@ -20,8 +20,8 @@
 enum planck_layers {
   _BL,
   _SL,
-  _VI,
   _NL,
+  _VI,
   _MS,
   _LOWER,
   _FN,
@@ -42,6 +42,9 @@ enum planck_layers {
 #define L_MS_E LT(_MS, KC_E)
 #define M_NUMP MO(_NL)
 #define T_SNAK TG(_SL)
+#define T_NUMB TG(_NL)
+#define T_VIL TG(_VI)
+#define T_MSL TG(_MS)
 
 #define OS_LCAG OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT))
 #define OS_HYPR OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))
@@ -89,6 +92,20 @@ const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 // Light LEDs 11 & 12 in purple when keyboard layer 2 is active
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+            // capslock leds
+    // if (host_keyboard_leds() & (1 << USB_LED_CAPS_LOCK)) {
+    // {1, 1, HSV_RED},
+    // {1, 4, HSV_RED},
+    // {1, 6, HSV_RED},
+    // {1, 7, HSV_RED},
+
+    // {1, 0, HSV_CHARTREUSE},
+    // {1, 2, HSV_CHARTREUSE},
+    // {1, 3, HSV_CHARTREUSE},
+    // {1, 5, HSV_CHARTREUSE},
+    // {1, 8, HSV_CHARTREUSE}
+    // }
+    // else
     {1, 0, HSV_CHARTREUSE},
     {1, 1, HSV_CHARTREUSE},
     {1, 2, HSV_CHARTREUSE},
@@ -267,13 +284,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case LT(_MS,KC_E):
     case LT(_VI,KC_D):
+    case NUMPAD:
         return 225;
     case SL_HLP:
         return 150;
     case KC_LSPO:
     case KC_RSPC:
-    case NUMPAD:
-        return 127;
+        return 85;
     case SEMI_:
         return 155;
     case FN_LAY:
@@ -288,6 +305,20 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // =============================================================================
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(_MS, KC_E):
+        case LT(_VI, KC_D):
+            return true;
+        default:
+            return false;
+    }
+}
+
+// =============================================================================
+// PERMISSIVE HOLD PER KEY SECTION
+// =============================================================================
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(_MS, KC_E):
         case LT(_VI, KC_D):
@@ -329,22 +360,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSPO, KC_Z,     KC_X,  KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
     OS_HYPR, M_GC_ESC, LOWER, M_GA_SPC, NUMPAD, KC_UNDS,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
 ),
+[_NL] = LAYOUT_planck_mit(
+    _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
+    _______, KC_LGUI, KC_LALT, _______,  T_SHDOT, XXXXXXX,  XXXXXXX, KC_4,    KC_5,    KC_6,    KC_MINS, _______,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX,  T_NUMB,  XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_PSLS, XXXXXXX,
+    _______, XXXXXXX, _______, _______,  _______, KC_0,             KC_SPC,  _______, XXXXXXX, XXXXXXX, _______
+ ),
 [_VI] = LAYOUT_planck_mit(
     _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,  KC_PGUP, KC_END,   XXXXXXX, T_SNAK,
     _______, KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_F19,  KC_CAPS,
-    _______, M_NUMP,  _______, _______, _______, _______, DW_BKWD, KC_BSPC,  KC_DEL,  DW_FRWD,  TD_DEL,  _______,
+    _______, _______, _______, _______, T_VIL,   _______, DW_BKWD, KC_BSPC,  KC_DEL,  DW_FRWD,  TD_DEL,  _______,
     _______, _______, _______, _______, _______, _______,          _______,  _______, _______,  _______, _______
 ),
-[_NL] = LAYOUT_planck_mit(
-    _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
-    _______, KC_LGUI, KC_LALT, _______,  T_SHDOT, XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_MINS, _______,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_PSLS, XXXXXXX,
-    _______, XXXXXXX, _______, _______,  _______, KC_0,             KC_SPC,  _______, XXXXXXX, XXXXXXX, _______
- ),
  [_MS] = LAYOUT_planck_mit(
     KC_ACL0, KC_ACL2, KC_ACL1, _______, KC_R,    XXXXXXX, KC_WH_L, KC_WH_U,    KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
     _______, KC_A,    KC_S,    XXXXXXX, KC_F,    XXXXXXX, KC_MS_L, KC_MS_D,    KC_MS_U, KC_MS_R, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C(G(KC_D)), XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, C(G(KC_D)), XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1,          XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, _______
  ),
 [_LOWER] = LAYOUT_planck_mit(
@@ -363,7 +394,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MD] = LAYOUT_planck_mit(
     MI_CHU,  MI_Cs,    MI_Ds,   XXXXXXX,  MI_Fs,    MI_Gs,     MI_As,    XXXXXXX,  MI_Cs_1,   MI_Ds_1,  XXXXXXX,   MI_Fs_1,
     MI_MOD,  MI_C,     MI_D,    MI_E,     MI_F,     MI_G,      MI_A,     MI_B,     MI_C_1,    MI_D_1,   MI_E_1,    MI_F_1,
-    MI_VELD, MI_VELU,  MI_PORT, MI_SOST,  MI_SOFT,  MI_LEG,    MI_BENDD, MI_BENDU, MI_VEL_8,  MI_OCT_0, MI_VEL_0, TG(_MD),
+    MI_VELD, MI_VELU,  MI_PORT, MI_SOST,  MI_SOFT,  MI_LEG,    MI_BENDD, MI_BENDU, MI_VEL_8,  MI_OCT_0, MI_VEL_0,  TG(_MD),
     MI_SUS,  MI_OCTD,  MI_OCTU, MI_MODSD, MI_MODSU, MI_ALLOFF,           XXXXXXX,  MI_TRNS_0, MI_TRNSD, MI_TRNSU,  MI_SUS
 ),
 };
@@ -513,10 +544,10 @@ void matrix_scan_user(void) {
             // negate function
             SEND_STRING("`%!in%` <- Negate(`%in%`)");
         }
-        SEQ_TWO_KEYS(KC_R, TD_SEMI) {
+        SEQ_TWO_KEYS(KC_R, KC_SCLN) {
             // needs to a as semi colon is a tap dance key
             // need to use bscp as first enters semi colon
-            SEND_STRING(SS_TAP(X_BSPC) " <-");
+            SEND_STRING(" <-");
         }
         SEQ_TWO_KEYS(KC_R, KC_P) {
             SEND_STRING(" %>%");

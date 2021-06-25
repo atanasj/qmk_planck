@@ -29,14 +29,23 @@ COMB(n56Ent,     KC_ENT,          KC_5, KC_6)
 // useful function keys
 COMB(fmF1,       KC_F1,           KC_F, KC_M)
 COMB(fcommF2,    KC_F2,           KC_F, KC_COMM)
+COMB(fdotF3,     KC_F2,           KC_F, KC_DOT)
+COMB(fjF4,       KC_F4,           KC_F, KC_J)
+COMB(fkF5,       KC_F5,           KC_F, KC_K)
 COMB(flF6,       KC_F6,           KC_F, KC_L)
+COMB(fuF7,       KC_F7,           KC_F, KC_U)
+COMB(fiF8,       KC_F8,           KC_F, KC_I)
+COMB(foF9,       KC_F9,           KC_F, KC_O)
+COMB(fyF10,      KC_F10,          KC_F, KC_Y)
+COMB(fhF11,      KC_F11,          KC_F, KC_H)
+COMB(fnF12,      KC_F12,          KC_F, KC_N)
 
-/* COMB(leftMETA,   C(A(KC_LGUI)),   KC_W, KC_F) */
-/* COMB(rightMETA,  C(A(KC_LGUI)),   KC_J, KC_O) */
-/* SUBS(pasta,       "I'd just like to interject for a moment.",       KC_H, KC_J, KC_K, KC_L) */
-/* SUBS(helloWorld, "QMK is pretty rad eh?", KC_H, KC_J) */
+// COMB(leftMETA,   C(A(KC_LGUI)),   KC_W, KC_F)
+// COMB(rightMETA,  C(A(KC_LGUI)),   KC_J, KC_O)
+// SUBS(pasta,       "I'd just like to interject for a moment.",       KC_H, KC_J, KC_K, KC_L)
+// SUBS(helloWorld, "QMK is pretty rad eh?", KC_H, KC_J)
 
 // layer toggle
-/* TOGG(viTogg,      _VI,            KC_V, KC_L) */
-/* TOGG(nlTogg,      _NL,            KC_N, KC_L) */
-/* TOGG(mlTogg,      _MS,            KC_M, KC_L) */
+TOGG(viTogg,      _VI,            KC_V, KC_L)
+TOGG(nlTogg,      _NL,            KC_N, KC_L)
+TOGG(mlTogg,      _MS,            KC_M, KC_L)
