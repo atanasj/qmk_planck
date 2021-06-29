@@ -290,7 +290,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         return 150;
     case KC_LSPO:
     case KC_RSPC:
-        return 85;
+        return 110;
     case SEMI_:
         return 155;
     case FN_LAY:
