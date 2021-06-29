@@ -1,0 +1,9 @@
+#include "defs.def"
+
+// media keys
+COMB(MUTEaf,     KC_MUTE,         KC_A, KC_F)
+COMB(PLAYsd,     KC_MPLY,         KC_S, L_VI_D)
+COMB(PREVas,     KC_MPRV,         KC_A, KC_S)
+COMB(NEXTsd,     KC_MNXT,         L_VI_D, KC_F)
+COMB(VOLUef,     KC_VOLU,         L_MS_E, KC_F)
+COMB(VOLDdv,     KC_VOLD,         L_VI_D, KC_V)

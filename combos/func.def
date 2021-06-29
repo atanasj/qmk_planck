@@ -1,0 +1,16 @@
+
+#include "defs.def"
+
+// useful function keys
+COMB(F1fm,       KC_F1,           KC_F, KC_M)
+COMB(F2fcomm,    KC_F2,           KC_F, KC_COMM)
+COMB(F3fdot,     KC_F3,           KC_F, KC_DOT)
+COMB(F4fj,       KC_F4,           KC_F, KC_J)
+COMB(F5fk,       KC_F5,           KC_F, KC_K)
+COMB(F6fl,       KC_F6,           KC_F, KC_L)
+COMB(F7fu,       KC_F7,           KC_F, KC_U)
+COMB(F8fi,       KC_F8,           KC_F, KC_I)
+COMB(F9fo,       KC_F9,           KC_F, KC_O)
+COMB(F10fy,      KC_F10,          KC_F, KC_Y)
+COMB(F11fh,      KC_F11,          KC_F, KC_H)
+COMB(F12fn,      KC_F12,          KC_F, KC_N)

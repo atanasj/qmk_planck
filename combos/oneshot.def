@@ -1,0 +1,6 @@
+#include "defs.def"
+
+// oneshot-mod-key combos
+COMB(LAGlscln,   OS_LAG,          KC_L, KC_SCLN)
+COMB(HYPRjscln,  OS_HYPR,         KC_J, KC_SCLN) // for alfred clipboard
+COMB(LCAGji,     OS_LCAG,         KC_J, KC_I)    // for launching apps

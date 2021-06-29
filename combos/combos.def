@@ -1,0 +1,25 @@
+#include "defs.def"
+// NOTE these combos only work with the early_combos branch
+
+// base-layer combos
+COMB(BSPCjl,     KC_BSPC,         KC_J, KC_L)
+COMB(TABjk,      KC_TAB,          KC_J, KC_K)
+COMB(ENTkl,      KC_ENT,          KC_K, KC_L)
+
+// layer combo
+// vi-layer combos
+COMB(BSPCdl,     KC_BSPC,         KC_DOWN, KC_RIGHT)
+COMB(TABrd,      KC_TAB,          KC_DOWN, KC_UP)
+COMB(ESCpuend,   KC_ESC,          KC_PGUP, KC_END)
+COMB(DELpdend,   KC_DEL,          KC_PGDN, KC_END)
+COMB(ENTur,      KC_ENT,          KC_UP, KC_RIGHT)
+// numpad-layer combos
+COMB(BSPCn46,    KC_BSPC,         KC_4, KC_6)
+COMB(TABn45,     KC_TAB,          KC_4, KC_5)
+COMB(ESCn89,     KC_ESC,          KC_8, KC_9)
+COMB(DELn79,     KC_DEL,          KC_7, KC_9)
+COMB(ENTn56,     KC_ENT,          KC_5, KC_6)
+
+// SUBS(pasta,       "I'd just like to interject for a moment.",       KC_H, KC_J, KC_K, KC_L)
+// SUBS(helloWorld, "QMK is pretty rad eh?", KC_H, KC_J)
+SUBS(helloWorld, "QMK is pretty rad eh?", KC_J, KC_K, KC_L)
