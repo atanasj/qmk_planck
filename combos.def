@@ -1,8 +1,10 @@
 // NOTE these combos only work with the early_combos branch
 
+// define action names
 #define L_VI_D LT(_VI, KC_D)
 #define L_MS_E LT(_MS, KC_E)
 
+#define OS_LAG  OSM(MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT))
 #define OS_LCAG OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT))
 #define OS_HYPR OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))
 
@@ -10,13 +12,19 @@
 COMB(jlBspc,     KC_BSPC,         KC_J, KC_L)
 COMB(jkTab,      KC_TAB,          KC_J, KC_K)
 COMB(klEnt,      KC_ENT,          KC_K, KC_L)
-COMB(lsclnLCAG,  OS_LCAG,         KC_L, KC_SCLN)
-COMB(jsclnLCAG,  OS_HYPR,         KC_J, KC_SCLN)
 
+// oneshot-mod-key combos
+COMB(lsclnLAG,   OS_LAG,          KC_L, KC_SCLN)
+COMB(jsclnHYPR,  OS_HYPR,         KC_J, KC_SCLN)
+COMB(jiLCAG,     OS_LCAG,         KC_J, KC_I)
+
+// media keys
 COMB(afMute,     KC_MUTE,         KC_A, KC_F)
 COMB(sdPlay,     KC_MPLY,         KC_S, L_VI_D)
 COMB(asPrev,     KC_MPRV,         KC_A, KC_S)
 COMB(sdNext,     KC_MNXT,         L_VI_D, KC_F)
+COMB(VOLUef,     KC_VOLU,         L_MS_E, KC_F)
+COMB(VOLDdv,     KC_VOLD,         L_VI_D, KC_V)
 
 // useful function keys
 COMB(fmF1,       KC_F1,           KC_F, KC_M)
@@ -46,14 +54,10 @@ COMB(n89Esc,     KC_ESC,          KC_8, KC_9)
 COMB(n79Del,     KC_DEL,          KC_7, KC_9)
 COMB(n56Ent,     KC_ENT,          KC_5, KC_6)
 
-/* COMB(woMB5,      KC_MS_BTN5,      KC_W, KC_O) */
-
-// COMB(leftMETA,   C(A(KC_LGUI)),   KC_W, KC_F)
-// COMB(rightMETA,  C(A(KC_LGUI)),   KC_J, KC_O)
-// SUBS(pasta,       "I'd just like to interject for a moment.",       KC_H, KC_J, KC_K, KC_L)
-// SUBS(helloWorld, "QMK is pretty rad eh?", KC_H, KC_J)
-
 // layer toggle
 TOGG(viTogg,      _VI,            KC_V, KC_L)
 TOGG(nlTogg,      _NL,            KC_N, KC_L)
 TOGG(mlTogg,      _MS,            KC_M, KC_L)
+
+// SUBS(pasta,       "I'd just like to interject for a moment.",       KC_H, KC_J, KC_K, KC_L)
+// SUBS(helloWorld, "QMK is pretty rad eh?", KC_H, KC_J)

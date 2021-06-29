@@ -50,6 +50,8 @@ enum planck_layers {
 #define OS_HYPR OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))
 
 #define M_GC_ESC MT(MOD_LGUI|MOD_LCTL,KC_ESC)
+
+#define OS_LAG  OSM(MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT))
 #define M_GA_SPC MT(MOD_LGUI|MOD_LALT,KC_SPC)
 #define T_G_TAB LCMD_T(KC_TAB)
 #define T_C_ESC LCTL_T(KC_ESC)
@@ -290,7 +292,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         return 150;
     case KC_LSPO:
     case KC_RSPC:
-        return 110;
+        return 115;
     case SEMI_:
         return 155;
     case FN_LAY:
@@ -352,13 +354,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     T_G_TAB, KC_Q,     KC_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
     T_C_ESC, KC_A,     KC_S,  L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
     KC_LSPO, KC_Z,     KC_X,  KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER, M_GA_SPC, NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
+    OS_HYPR, M_GC_ESC, LOWER, OS_LAG,   NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
 ),
 [_SL] = LAYOUT_planck_mit(
     T_G_TAB, KC_Q,     KC_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
     T_C_ESC, KC_A,     KC_S,  L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
     KC_LSPO, KC_Z,     KC_X,  KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER, M_GA_SPC, NUMPAD, KC_UNDS,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
+    OS_HYPR, M_GC_ESC, LOWER, OS_LAG,   NUMPAD, KC_UNDS,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
 ),
 [_NL] = LAYOUT_planck_mit(
     _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
