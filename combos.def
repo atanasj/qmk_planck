@@ -4,8 +4,14 @@
 #define L_VI_D LT(_VI, KC_D)
 #define L_MS_E LT(_MS, KC_E)
 
-#define OS_LAG  OSM(MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT))
-#define OS_LCAG OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT))
+#define OS_LSA  OSM(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LALT))
+#define OS_LSC  OSM(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCLT))
+#define OS_LSG  OSM(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LGUI))
+#define OS_LAC  OSM(MOD_BIT(KC_LALT) | MOD_BIT(KC_LCLT))
+#define OS_LAG  OSM(MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))
+#define OS_LCAG OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))
+#define OS_LCAS OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))
+#define OS_LCGS OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LSFT))
 #define OS_HYPR OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))
 
 // base-layer combos
@@ -15,8 +21,8 @@ COMB(ENTkl,      KC_ENT,          KC_K, KC_L)
 
 // oneshot-mod-key combos
 COMB(LAGlscln,   OS_LAG,          KC_L, KC_SCLN)
-COMB(HYPRjscln,  OS_HYPR,         KC_J, KC_SCLN)
-COMB(LCAGji,     OS_LCAG,         KC_J, KC_I)
+COMB(HYPRjscln,  OS_HYPR,         KC_J, KC_SCLN) // for alfred clipboard
+COMB(LCAGji,     OS_LCAG,         KC_J, KC_I)    // for launching apps
 
 // media keys
 COMB(MUTEaf,     KC_MUTE,         KC_A, KC_F)
