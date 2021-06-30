@@ -1,6 +1,16 @@
 #include "defs.def"
 
-// oneshot-mod-key combos
+// oneshot single-mod-key combos
+COMB(LSuj,   OS_LS,          KC_U, KC_J)
+COMB(LCik,   OS_LC,          KC_I, KC_K)
+COMB(LAuj,   OS_LA,          KC_O, KC_L)
+COMB(LGuj,   OS_LG,          KC_P, KC_SCLN)
+
+// oneshot double-mod-key combos
 COMB(LAGlscln,   OS_LAG,          KC_L, KC_SCLN)
-COMB(HYPRjscln,  OS_HYPR,         KC_J, KC_SCLN) // for alfred clipboard
+
+// oneshot triple-mod-key combos
 COMB(LCAGji,     OS_LCAG,         KC_J, KC_I)    // for launching apps
+
+// oneshot hyper combo
+COMB(HYPRjscln,  OS_HYPR,         KC_J, KC_SCLN) // for alfred clipboard

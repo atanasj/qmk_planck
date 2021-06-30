@@ -1,16 +1,27 @@
 
 // NOTE these combos only work with the early_combos branch
 
-// define action names
+// layer taps keys
 #define L_VI_D LT(_VI, KC_D)
 #define L_MS_E LT(_MS, KC_E)
 
+// single mod keys
+#define OS_LS  OSM(MOD_LSFT)
+#define OS_LC  OSM(MOD_LCTL)
+#define OS_LA  OSM(MOD_LALT)
+#define OS_LG  OSM(MOD_LGUI)
+
+// double mod combos
 #define OS_LSA  OSM(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LALT))
-#define OS_LSC  OSM(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCLT))
+#define OS_LSC  OSM(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCTL))
 #define OS_LSG  OSM(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LGUI))
-#define OS_LAC  OSM(MOD_BIT(KC_LALT) | MOD_BIT(KC_LCLT))
+#define OS_LAC  OSM(MOD_BIT(KC_LALT) | MOD_BIT(KC_LCTL))
 #define OS_LAG  OSM(MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))
+
+// triple mod combos
 #define OS_LCAG OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))
 #define OS_LCAS OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))
 #define OS_LCGS OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LSFT))
+
+// hyper combo
 #define OS_HYPR OSM(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LSFT))

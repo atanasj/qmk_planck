@@ -32,6 +32,7 @@ enum combos {
 #include "media.def"
 #include "oneshot.def"
 #include "togg.def"
+#include "defs.def"
 };
 
 // Bake combos into mem
@@ -46,6 +47,7 @@ enum combos {
 #include "media.def"
 #include "oneshot.def"
 #include "togg.def"
+#include "defs.def"
 #undef COMB
 #undef SUBS
 #undef TOGG
@@ -60,6 +62,7 @@ combo_t key_combos[] = {
 #include "media.def"
 #include "oneshot.def"
 #include "togg.def"
+#include "defs.def"
 };
 #undef COMB
 #undef SUBS
@@ -79,6 +82,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 #include "media.def"
 #include "oneshot.def"
 #include "togg.def"
+#include "defs.def"
     }
 
     // Allow user overrides per keymap
