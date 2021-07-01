@@ -422,7 +422,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_NL] = LAYOUT_planck_mit(
     _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
-    _______, KC_LGUI, KC_LALT, _______,  T_SHDOT, XXXXXXX,  XXXXXXX, KC_4,    KC_5,    KC_6,    KC_MINS, _______,
+    _______, KC_LGUI, KC_LALT, _______,  T_SHDOT, XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_MINS, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX,  T_NUMB,  XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_PSLS, XXXXXXX,
     _______, XXXXXXX, _______, _______,  _______, KC_0,             KC_SPC,  _______, XXXXXXX, XXXXXXX, _______
  ),
@@ -609,7 +609,7 @@ LEADER_EXTERNS();
 
 void matrix_scan_user(void) {
     if (is_alt_tab_active) {
-        if (timer_elapsed(alt_tab_timer) > 1000) {
+        if (timer_elapsed(alt_tab_timer) > 850) {
             unregister_code(KC_LGUI);
             is_alt_tab_active = false;
         }
