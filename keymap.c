@@ -22,6 +22,8 @@ enum planck_layers {
   _SL,
   _NL,
   _VI,
+  _WL,
+  _WQ,
   _MS,
   _LOWER,
   _FN,
@@ -40,6 +42,7 @@ enum planck_layers {
 #define FN_LAY MO(_FN)
 #define L_VI_D LT(_VI, KC_D)
 #define L_MS_E LT(_MS, KC_E)
+#define WIND_W LT(_WL, KC_W)
 #define M_NUMP MO(_NL)
 #define T_SNAK TG(_SL)
 #define T_NUMB TG(_NL)
@@ -248,12 +251,43 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // MACRO SECTION
 // =============================================================================
 
+bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
+uint16_t alt_tab_timer = 0;     // we will be using them soon.
+
 enum macros {
-    SUSPEND = SAFE_RANGE
+    SUSPEND = SAFE_RANGE,
+    GUI_TAB,
+    SGUI_TAB
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case GUI_TAB:
+            if (record->event.pressed) {
+                if (!is_alt_tab_active) {
+                    is_alt_tab_active = true;
+                    register_code(KC_LGUI);
+                }
+                alt_tab_timer = timer_read();
+                register_code(KC_TAB);
+            } else {
+                unregister_code(KC_TAB);
+            }
+            break;
+        case SGUI_TAB:
+            if (record->event.pressed) {
+                if (!is_alt_tab_active) {
+                    is_alt_tab_active = true;
+                    register_code(KC_LGUI);
+                }
+                alt_tab_timer = timer_read();
+                register_code(KC_LSFT);
+                register_code(KC_TAB);
+            } else {
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TAB);
+            }
+            break;
         case KC_RSFT:
             perform_space_cadet(record, KC_RSPC, KC_RSFT, KC_RSFT, KC_0);
             return false;
@@ -308,6 +342,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case LT(_MS,KC_E):
     case LT(_VI,KC_D):
     case NUMPAD:
+    case WIND_W:
         return 225;
     case SL_HLP:
         return 150;
@@ -331,6 +366,7 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(_MS, KC_E):
         case LT(_VI, KC_D):
+        case WIND_W:
             return true;
         default:
             return false;
@@ -345,6 +381,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(_MS, KC_E):
         case LT(_VI, KC_D):
+        case WIND_W:
             return true;
         default:
             return false;
@@ -372,16 +409,16 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BL] = LAYOUT_planck_mit(
-    T_G_TAB, KC_Q,     KC_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
-    T_C_ESC, KC_A,     KC_S,  L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
-    KC_LSPO, KC_Z,     KC_X,  KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER, OS_LAG,   NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
+    T_G_TAB, KC_Q,     WIND_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
+    T_C_ESC, KC_A,     KC_S,    L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
+    KC_LSPO, KC_Z,     KC_X,    KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
+    OS_HYPR, M_GC_ESC, LOWER,   OS_LAG,   NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
 ),
 [_SL] = LAYOUT_planck_mit(
-    T_G_TAB, KC_Q,     KC_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
-    T_C_ESC, KC_A,     KC_S,  L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
-    KC_LSPO, KC_Z,     KC_X,  KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER, OS_LAG,   NUMPAD, KC_UNDS,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
+    T_G_TAB, KC_Q,     WIND_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
+    T_C_ESC, KC_A,     KC_S,    L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
+    KC_LSPO, KC_Z,     KC_X,    KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
+    OS_HYPR, M_GC_ESC, LOWER,   OS_LAG,   NUMPAD, KC_UNDS,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
 ),
 [_NL] = LAYOUT_planck_mit(
     _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
@@ -395,7 +432,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, T_VIL,   _______, DW_BKWD, KC_BSPC,  KC_DEL,  DW_FRWD,  TD_DEL,  _______,
     _______, _______, _______, _______, _______, _______,          _______,  _______, _______,  _______, _______
 ),
- [_MS] = LAYOUT_planck_mit(
+[_WL] = LAYOUT_planck_mit(
+    _______, MO(_WQ), _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_BTN5,    XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_H), HYPR(KC_J), HYPR(KC_K), HYPR(KC_L), XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_I), XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_ENT),        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, _______
+ ),
+[_WQ] = LAYOUT_planck_mit(
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,  XXXXXXX, KC_BTN7,   XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, G(S(KC_GRV)), SGUI_TAB, GUI_TAB, G(KC_GRV), XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,  XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,               XXXXXXX,  XXXXXXX, XXXXXXX,   XXXXXXX, _______
+ ),
+[_MS] = LAYOUT_planck_mit(
     KC_ACL0, KC_ACL2, KC_ACL1, _______, KC_R,    XXXXXXX, KC_WH_L, KC_WH_U,    KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
     _______, KC_A,    KC_S,    XXXXXXX, KC_F,    XXXXXXX, KC_MS_L, KC_MS_D,    KC_MS_U, KC_MS_R, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, C(G(KC_D)), XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX,
@@ -559,6 +608,12 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 LEADER_EXTERNS();
 
 void matrix_scan_user(void) {
+    if (is_alt_tab_active) {
+        if (timer_elapsed(alt_tab_timer) > 1000) {
+            unregister_code(KC_LGUI);
+            is_alt_tab_active = false;
+        }
+    }
     LEADER_DICTIONARY() {
         leading = false;
         leader_end();
