@@ -1,5 +1,3 @@
-#include "defs.def"
-
 // media keys
 COMB(MUTEaf,     KC_MUTE,         KC_A, KC_F)
 COMB(PLAYsd,     KC_MPLY,         KC_S, L_VI_D)

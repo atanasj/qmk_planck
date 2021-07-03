@@ -1,6 +1,3 @@
-
-#include "defs.def"
-
 // layer toggle
 TOGG(TOGG_vi,    _VI,             L_VI_D, KC_H)
 TOGG(TOGG_ms,    _MS,             L_MS_E, KC_H)

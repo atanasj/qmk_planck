@@ -1,5 +1,3 @@
-#include "defs.def"
-
 // oneshot single-mod-key combos
 COMB(LSuj,       OS_LS,       KC_U, KC_J)
 COMB(LCik,       OS_LC,       KC_I, KC_K)
@@ -13,4 +11,4 @@ COMB(LAGml,      OS_LAG,      KC_M, KC_L)
 COMB(LCAGji,     OS_LCAG,     KC_J, KC_I)    // for launching apps
 
 // oneshot hyper combo
-COMB(HYPRup,     OS_HYPR,     KC_U, KC_P) // for alfred clipboard
+COMB(HYPRup,     OS_HYPR,     KC_J, KC_K, KC_L)

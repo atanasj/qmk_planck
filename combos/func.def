@@ -1,6 +1,3 @@
-
-#include "defs.def"
-
 // useful function keys
 COMB(F1fm,       KC_F1,           KC_F, KC_M)
 COMB(F2fcomm,    KC_F2,           KC_F, KC_COMM)
