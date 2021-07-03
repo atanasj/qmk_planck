@@ -4,7 +4,7 @@ COMB(BSPCjl,     KC_BSPC,         KC_J, KC_L)
 COMB(TABjk,      KC_TAB,          KC_J, KC_K)
 COMB(ENTkl,      KC_ENT,          KC_K, KC_L)
 COMB(ESCcomdot,  KC_ESC,          KC_COMM, KC_DOT)
-// COMB(SPCdothelp, KC_SPC,          KC_DOT, SL_HLP)
+COMB(CAPSjo,     CAPS_WORD,       KC_J, KC_O)
 
 // layer combo
 // vi-layer combos

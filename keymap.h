@@ -7,6 +7,14 @@
 // LAYERS
 // =============================================================================
 
+uint8_t mod_state;
+uint8_t oneshot_mod_state;
+uint16_t last_keycode;
+
+bool caps_word_on;
+void caps_word_enable(void);
+void caps_word_disable(void);
+
 enum planck_layers {
   _BL,
   _SL,
@@ -29,7 +37,8 @@ bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
 enum macros {
     SUSPEND = SAFE_RANGE,
     GUI_TAB,
-    SGUI_TAB
+    SGUI_TAB,
+    CAPS_WORD
 };
 
 // =============================================================================
