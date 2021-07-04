@@ -1,7 +1,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "muse.h"
+// #include "muse.h"
 
 // =============================================================================
 // LAYERS
@@ -32,13 +32,12 @@ enum planck_layers {
 // MACRO KEYS
 // =============================================================================
 
-bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
-
 enum macros {
     SUSPEND = SAFE_RANGE,
     GUI_TAB,
     SGUI_TAB,
-    CAPS_WORD
+    CAPS_WORD,
+    REPEAT,
 };
 
 // =============================================================================

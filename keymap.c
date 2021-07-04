@@ -1,6 +1,8 @@
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
+bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
+
 #include "keymap.h"
 
 #ifdef COMBO_ENABLE
@@ -12,8 +14,9 @@
 #endif
 
 #if defined (RGBLIGHT_ENABLE) || defined (RGB_MATRIX_ENABLE)
-#include "rgb.h"
+#include "rgbstuff.h"
 #endif
+
 
 // =============================================================================
 // KEYMAP SECTION
@@ -164,18 +167,29 @@ uint8_t  last_modifier = 0;
 
 void     process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
     last_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
-    switch (keycode) {
-        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-        case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-            if (record->event.pressed) {
-                last_keycode = GET_TAP_KC(keycode);
-            }
-            break;
-        default:
-            if (record->event.pressed) {
-                last_keycode = keycode;
-            }
-            break;
+    if (keycode != REPEAT) {
+        last_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
+        switch (keycode) {
+            case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+                if (record->event.pressed) {
+                    last_keycode = GET_TAP_KC(keycode);
+                }
+                break;
+            default:
+                if (record->event.pressed) {
+                    last_keycode = keycode;
+                }
+                break;
+        }
+    } else { // keycode == REPEAT
+        if (record->event.pressed) {
+            register_mods(last_modifier);
+            register_code16(last_keycode);
+        } else {
+            unregister_code16(last_keycode);
+            unregister_mods(last_modifier);
+        }
     }
 }
 
