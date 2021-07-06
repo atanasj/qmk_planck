@@ -1,22 +1,25 @@
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
-bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
+bool is_alt_tab_active = false;  // ADD this near the begining of keymap.c
+__attribute__ ((weak))
+bool process_record_secrets(uint16_t keycode, keyrecord_t *record) {
+  return true;
+}
 
 #include "keymap.h"
 
 #ifdef COMBO_ENABLE
-#include "keymap_combo.h"
+#    include "keymap_combo.h"
 #endif
 
 #ifdef TAP_DANCE_ENABLE
-#include "tapdance.h"
+#    include "tapdance.h"
 #endif
 
-#if defined (RGBLIGHT_ENABLE) || defined (RGB_MATRIX_ENABLE)
-#include "rgbstuff.h"
+#if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
+#    include "rgbstuff.h"
 #endif
-
 
 // =============================================================================
 // KEYMAP SECTION
@@ -27,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     T_G_TAB, KC_Q,     WIND_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
     T_C_ESC, KC_A,     KC_S,    L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, T_C_QUO,
     KC_LSPO, KC_Z,     KC_X,    KC_C,     KC_V,   KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER,   OS_LAG,   NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
+    OS_HYPR, M_GC_ESC, LOWER,   OS_LAG,   NUMPAD, T_A_SPC,          FN_LAY,  OS_LCAG, XXXXXXX, KC_SECRET_1, T_SG_EN
 ),
 [_SL] = LAYOUT_planck_mit(
     T_G_TAB, KC_Q,     WIND_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    T_G_BSP,
@@ -255,7 +258,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             }
     }
-    return true;
+    // return true;
+    return process_record_secrets(keycode, record);
 }
 
 // =============================================================================

@@ -1,7 +1,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-// #include "muse.h"
+#include "muse.h"
 
 // =============================================================================
 // LAYERS
@@ -38,6 +38,11 @@ enum macros {
     SGUI_TAB,
     CAPS_WORD,
     REPEAT,
+    KC_SECRET_1,
+    KC_SECRET_2,
+    KC_SECRET_3,
+    KC_SECRET_4,
+    KC_SECRET_5,
 };
 
 // =============================================================================

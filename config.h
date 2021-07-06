@@ -28,6 +28,8 @@
 #define LEADER_PER_KEY_TIMING
 #define LEADER_TIMEOUT 500
 
+#define MACRO_TIMER 5
+
 // Limits the max. amount of layers to 8 to save firmware memory.
 /* #define LAYER_STATE_8BIT */
 
