@@ -22,6 +22,7 @@ enum planck_layers {
   _VI,
   _WL,
   _WQ,
+  _DM,
   _MS,
   _LOWER,
   _FN,
