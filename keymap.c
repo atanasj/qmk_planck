@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,          _______,  _______, _______,  _______, _______
 ),
 [_WL] = LAYOUT_planck_mit(
-    _______, MO(_WQ), _______, MO(_DM), XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_BTN5,    XXXXXXX, XXXXXXX,
+    _______, MO(_WQ), _______, XXXXXXX, MO(_DM), XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_BTN5,    XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_H), HYPR(KC_J), HYPR(KC_K), HYPR(KC_L), XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_I), XXXXXXX,    _______,    _______,    XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_ENT),        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, _______
@@ -208,6 +208,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     mod_state = get_mods();
     oneshot_mod_state = get_oneshot_mods();
     switch (keycode) {
+        // case DM_REC1:
+        //     rgblight_blink_layer(dynamic_macro_record_start_user, my_capslock_layer, 500);
+        //     break;
         case CAPS_WORD:
         // Toggle `caps_word_on`
         if (record->event.pressed) {
@@ -276,12 +279,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case L_MS_E:
     case L_VI_D:
-    case NUMPAD:
     case WIND_W:
         return 225;
     case SL_HLP:
         return 150;
     case KC_LSPO:
+    case NUMPAD:
     case KC_RSPC:
         return 115;
     case SEMI_:
