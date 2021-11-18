@@ -6,6 +6,7 @@ COMB(ENTkl,      KC_ENT,          KC_K, KC_L)
 COMB(ESCcomdot,  KC_ESC,          KC_COMM, KC_DOT)
 COMB(CAPSqw,     CAPS_WORD,       KC_Q, WIND_W)
 // COMB(CAPSsdf,    CAPS_WORD,       KC_S, L_VI_D, KC_F)
+// COMB(REPas,      REPEAT,          KC_A, KC_S, L_VI_D, KC_F)
 
 // layer combo
 // vi-layer combos

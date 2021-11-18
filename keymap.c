@@ -45,46 +45,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, XXXXXXX, _______, _______,  _______, KC_0,             KC_SPC,  _______, XXXXXXX, XXXXXXX, _______
  ),
 [_VI] = LAYOUT_planck_mit(
-    _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,  KC_PGUP, KC_END,   XXXXXXX, T_SNAK,
-    _______, KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_F19,  KC_CAPS,
+    _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,  KC_PGUP, KC_END,   KC_CAPS, T_SNAK,
+    _______, KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_F19,  _______,
     _______, _______, _______, _______, T_VIL,   _______, DW_BKWD, KC_BSPC,  KC_DEL,  DW_FRWD,  TD_DEL,  _______,
     _______, _______, _______, _______, _______, _______,          _______,  _______, _______,  _______, _______
 ),
 [_WL] = LAYOUT_planck_mit(
     _______, MO(_WQ), _______, XXXXXXX, MO(_DM), XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_BTN5,    XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_H), HYPR(KC_J), HYPR(KC_K), HYPR(KC_L), XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_H), HYPR(KC_J), HYPR(KC_K), HYPR(KC_L), XXXXXXX, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_I), XXXXXXX,    _______,    _______,    XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYPR(KC_ENT),        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, _______
  ),
 [_WQ] = LAYOUT_planck_mit(
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX,  KC_BTN7,   XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, G(S(KC_GRV)), GUI_TAB, SGUI_TAB, G(KC_GRV), XXXXXXX, XXXXXXX,
+    _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX,  KC_BTN7,   XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, G(S(KC_GRV)), GUI_TAB, SGUI_TAB, G(KC_GRV), XXXXXXX, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, _______,  _______,   XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,               XXXXXXX, XXXXXXX,  XXXXXXX,   XXXXXXX, _______
  ),
 [_DM] = LAYOUT_planck_mit(
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_REC1, DM_PLY1, DM_REC2, DM_PLY2, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_REC1, DM_PLY1, DM_REC2, DM_PLY2, XXXXXXX, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_RSTP,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
  ),
 [_MS] = LAYOUT_planck_mit(
     KC_ACL0, KC_ACL2, KC_ACL1, _______, KC_R,    XXXXXXX, KC_WH_L, KC_WH_U,    KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
-    _______, KC_A,    KC_S,    XXXXXXX, KC_F,    XXXXXXX, KC_MS_L, KC_MS_D,    KC_MS_U, KC_MS_R, XXXXXXX, XXXXXXX,
+    _______, KC_A,    KC_S,    XXXXXXX, KC_F,    XXXXXXX, KC_MS_L, KC_MS_D,    KC_MS_U, KC_MS_R, XXXXXXX, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, C(G(KC_D)), XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1,          XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, _______
  ),
+[_FN] = LAYOUT_planck_mit(
+    SUSPEND, KC_TILD, KC_LCBR, KC_RCBR, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DEBUG,   RGB_TOG,
+    KC_BRIU, KC_GRV,  KC_LBRC, KC_RBRC, KC_BSLS, XXXXXXX, XXXXXXX, KC_LGUI, XXXXXXX, KC_BSPC, _______, _______,
+    KC_BRID, XXXXXXX, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LSFT,
+    _______, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,          _______, XXXXXXX, RGB_VAI, RGB_VAD, RESET
+),
 [_LOWER] = LAYOUT_planck_mit(
     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, _______, _______, _______, KC_MPLY, _______,
     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, MU_ON,   MU_OFF,  MU_MOD,
     _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_LALT,          XXXXXXX, TG(_MD), AU_ON,   AU_OFF,  _______
-),
-[_FN] = LAYOUT_planck_mit(
-    SUSPEND, KC_TILD, KC_LCBR, KC_RCBR, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DEBUG,   RGB_TOG,
-    KC_BRIU, KC_GRV,  KC_LBRC, KC_RBRC, KC_BSLS, XXXXXXX, XXXXXXX, KC_LGUI, XXXXXXX, KC_BSPC, _______, XXXXXXX,
-    KC_BRID, XXXXXXX, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LSFT,
-    _______, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,          _______, XXXXXXX, RGB_VAI, RGB_VAD, RESET
 ),
 // NOTE quantum/process_keycode/process_midi.c
 #ifdef MIDI_ENABLE
@@ -151,6 +151,7 @@ void process_caps_word(uint16_t keycode, const keyrecord_t *record) {
             // Keycodes that enable caps word but shouldn't get shifted
             case KC_MINS:
             case KC_BSPC:
+            case REPEAT:
             // disable below so that disables after one word in _SL
             // case KC_UNDS:
             // case KC_F24: /* The dummy keycode used in NAV_UND */
@@ -174,9 +175,21 @@ void process_caps_word(uint16_t keycode, const keyrecord_t *record) {
 uint16_t last_keycode  = KC_NO;
 uint8_t  last_modifier = 0;
 
-void     process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
+void process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
     last_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
     if (keycode != REPEAT) {
+        // Early return when holding down a pure layer key
+        // to retain modifiers
+        switch (keycode) {
+            case QK_DEF_LAYER ... QK_DEF_LAYER_MAX:
+            case QK_MOMENTARY ... QK_MOMENTARY_MAX:
+            case QK_LAYER_MOD ... QK_LAYER_MOD_MAX:
+            case QK_ONE_SHOT_LAYER ... QK_ONE_SHOT_LAYER_MAX:
+            case QK_TOGGLE_LAYER ... QK_TOGGLE_LAYER_MAX:
+            case QK_TO ... QK_TO_MAX:
+            case QK_LAYER_TAP_TOGGLE ... QK_LAYER_TAP_TOGGLE_MAX:
+                return;
+        }
         last_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
         switch (keycode) {
             case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
@@ -201,6 +214,12 @@ void     process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
         }
     }
 }
+// float my_song[][2] = SONG(QWERTY_SOUND);
+
+float tone_rick[][2]    = SONG(RICK_ROLL);
+float tone_qwerty[][2]  = SONG(QWERTY_SOUND);
+float tone_dvorak[][2]  = SONG(DVORAK_SOUND);
+float tone_colemak[][2] = SONG(COLEMAK_SOUND);
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     process_caps_word(keycode, record);
@@ -209,8 +228,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     oneshot_mod_state = get_oneshot_mods();
     switch (keycode) {
         // case DM_REC1:
-        //     rgblight_blink_layer(dynamic_macro_record_start_user, my_capslock_layer, 500);
-        //     break;
+        //     if (record->event.pressed) {
+        //         PLAY_SONG(tone_qwerty);
+        //     }
+        //     return true; // Let QMK send the enter press/release events
+        // break;
+        // case DM_REC2:
+        //     if (record->event.pressed) {
+        //         PLAY_SONG(tone_dvorak);
+        //     }
+        //     return true; // Let QMK send the enter press/release events
+        // break;
+        // case DM_RSTP:
+        //     if (record->event.pressed) {
+        //         PLAY_SONG(tone_colemak);
+        //     }
+        //     return true; // Let QMK send the enter press/release events
+        // break;
         case CAPS_WORD:
         // Toggle `caps_word_on`
         if (record->event.pressed) {
@@ -269,6 +303,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     // return true;
     return process_record_secrets(keycode, record);
+}
+
+
+// Redefine with lower delay
+void led_blink(void) {
+    rgblight_toggle();
+    wait_ms(25);
+    rgblight_toggle();
+}
+
+void dynamic_macro_record_start_user(void) {
+    led_blink();
+    PLAY_SONG(tone_qwerty);
+
+}
+
+void dynamic_macro_play_user(int8_t direction) {
+    led_blink();
+}
+
+void dynamic_macro_record_key_user(int8_t direction, keyrecord_t *record) {
+    led_blink();
+    PLAY_SONG(tone_dvorak);
+
+}
+
+void dynamic_macro_record_end_user(int8_t direction) {
+    led_blink();
+    PLAY_SONG(tone_colemak);
 }
 
 // =============================================================================

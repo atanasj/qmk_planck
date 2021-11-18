@@ -2,6 +2,14 @@
 
 #ifdef AUDIO_ENABLE
 #    define STARTUP_SONG SONG(PLANCK_SOUND)
+#    include "song_list.h"
+// #        define DM1_SONG SONG(RICK_ROLL)
+// #        define DM2_SONG SONG(SONIC_RING)
+// #        define UNICODE_SONG_MAC  SONG(MARIO_THEME)
+// #        define UNICODE_SONG_LNX  SONG(MARIO_POWERUP)
+// #        define UNICODE_SONG_WIN  SONG(MARIO_ONEUP)
+// #        define UNICODE_SONG_BSD  SONG(RICK_ROLL)
+// #        define UNICODE_SONG_WINC SONG(RICK_ROLL)
 // #    define STARTUP_SONG SONG(NO_SOUND)
 //////////////////////////////////////////////////////////
 // #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \  //
@@ -39,6 +47,7 @@
 
 #define COMBO_VARIABLE_LEN
 /* #define COMBO_COUNT 13 */
+#undef COMBO_TERM
 #define COMBO_TERM 20
 // Set the mouse settings to a comfortable speed/accuracy trade-off
 // Assume the screen refresh rate is 60 Hz or higher
