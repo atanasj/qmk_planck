@@ -96,6 +96,11 @@ enum macros {
 #define T_A_SPC ALT_T(KC_SPC)
 // #define T_A_UND MT(MOD_LALT,KC_MIN)
 
+// mouse layer safety keys
+#define MS_GUIA LGUI_T(KC_A)
+#define MS_ALTS LALT_T(KC_S)
+#define MS_SFTF LSFT_T(KC_F)
+
 #define T_G_BSP RCMD_T(KC_BSPC)
 #define T_C_QUO LCTL_T(KC_QUOT)
 #define T_SG_EN SGUI_T(KC_ENT)

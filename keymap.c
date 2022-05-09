@@ -41,13 +41,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NL] = LAYOUT_planck_mit(
     _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
     _______, KC_LGUI, KC_LALT, _______,  T_SHDOT, XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_MINS, _______,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX,  T_NUMB,  XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_PSLS, XXXXXXX,
+    _______, XXXXXXX, T_NUMB,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_PSLS, XXXXXXX,
     _______, XXXXXXX, _______, _______,  _______, KC_0,             KC_SPC,  _______, XXXXXXX, XXXXXXX, _______
  ),
 [_VI] = LAYOUT_planck_mit(
     _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,  KC_PGUP, KC_END,   KC_CAPS, T_SNAK,
     _______, KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_F19,  _______,
-    _______, _______, _______, _______, T_VIL,   _______, DW_BKWD, KC_BSPC,  KC_DEL,  DW_FRWD,  TD_DEL,  _______,
+    _______, _______, T_VIL,   _______, _______, _______, DW_BKWD, KC_BSPC,  KC_DEL,  DW_FRWD,  TD_DEL,  _______,
     _______, _______, _______, _______, _______, _______,          _______,  _______, _______,  _______, _______
 ),
 [_WL] = LAYOUT_planck_mit(
@@ -69,9 +69,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_RSTP,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
  ),
 [_MS] = LAYOUT_planck_mit(
-    KC_ACL0, KC_ACL2, KC_ACL1, _______, KC_R,    XXXXXXX, KC_WH_L, KC_WH_U,    KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
-    _______, KC_A,    KC_S,    XXXXXXX, KC_F,    XXXXXXX, KC_MS_L, KC_MS_D,    KC_MS_U, KC_MS_R, XXXXXXX, _______,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, C(G(KC_D)), XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX,
+    KC_ACL0, KC_ACL1, KC_ACL2, _______, KC_R,    XXXXXXX, KC_WH_L, KC_WH_U,    KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
+    _______, MS_GUIA, MS_ALTS, _______, MS_SFTF, XXXXXXX, KC_MS_L, KC_MS_D,    KC_MS_U, KC_MS_R, XXXXXXX, _______,
+    _______, XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C(G(KC_D)), XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1,          XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, _______
  ),
 [_FN] = LAYOUT_planck_mit(
@@ -368,7 +368,6 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
         case L_MS_E:
         case L_VI_D:
         case WIND_W:
-        case NUMPAD:
             return true;
         default:
             return false;
@@ -387,6 +386,24 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case NUMPAD:
             return true;
         default:
+            return false;
+    }
+}
+
+// =============================================================================
+// MOD TAP INTERRUP PER KEY SECTION
+// =============================================================================
+// NOTE this is experimental, review it's use
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // case T_A_SPC:
+        case KC_LSPO:
+        case KC_RSFT:
+        case NUMPAD:
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
             return false;
     }
 }
