@@ -440,10 +440,6 @@ void matrix_scan_user(void) {
         leading = false;
         leader_end();
         // R section
-        SEQ_THREE_KEYS(KC_R, KC_F, KC_N) {
-            // negate function
-            SEND_STRING("`%!in%` <- Negate(`%in%`)");
-        }
         SEQ_TWO_KEYS(KC_R, KC_SCLN) {
             // needs to a as semi colon is a tap dance key
             // need to use bscp as first enters semi colon
@@ -455,12 +451,14 @@ void matrix_scan_user(void) {
         SEQ_TWO_KEYS(KC_R, KC_I) {
             SEND_STRING(" %in% ");
         }
-        SEQ_TWO_KEYS(KC_R, KC_N) {
-            SEND_STRING(" %!in% ");
-        }
         // Signature section
+        // signature, smile
         SEQ_TWO_KEYS(KC_S, KC_S) {
             SEND_STRING("Cheers,  :-)" SS_TAP(X_ENT) SS_TAP(X_ENT) "Atanas");
+        }
+        // signature, no smile
+        SEQ_TWO_KEYS(KC_A, KC_A) {
+            SEND_STRING("Cheers," SS_TAP(X_ENT) SS_TAP(X_ENT) "Atanas");
         }
         /* // Kamoji section */
         /* SEQ_TWO_KEYS(KC_K, KC_F) { */
