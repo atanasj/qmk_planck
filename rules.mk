@@ -22,3 +22,4 @@ NKRO_ENABLE = yes
 AUDIO_ENABLE = yes				# no for bm40rgbhs
 MIDI_ENABLE = yes
 DYNAMIC_MACRO_ENABLE = yes
+CAPS_WORD_ENABLE = yes
