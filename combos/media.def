@@ -1,7 +1,7 @@
-// media keys
-COMB(MUTEaf,     KC_MUTE,         KC_A, KC_F)
-COMB(PLAYsd,     KC_MPLY,         KC_S, L_VI_D)
-COMB(PREVas,     KC_MPRV,         KC_A, KC_S)
-COMB(NEXTsd,     KC_MNXT,         L_VI_D, KC_F)
-COMB(VOLUef,     KC_VOLU,         L_MS_E, KC_F)
-COMB(VOLDdv,     KC_VOLD,         L_VI_D, KC_V)
+// media keys on _FN layer
+COMB(MUTEaf,     KC_MUTE,         KC_GRV, KC_BSLS)
+COMB(PLAYsd,     KC_MPLY,         KC_LBRC, KC_RBRC)
+COMB(PREVas,     KC_MPRV,         KC_GRV, KC_LBRC)
+COMB(NEXTsd,     KC_MNXT,         KC_RBRC, KC_BSLS)
+COMB(VOLUef,     KC_VOLU,         KC_RCBR, KC_BSLS)
+COMB(VOLDdv,     KC_VOLD,         KC_RBRC, KC_COLN)
