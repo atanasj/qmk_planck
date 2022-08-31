@@ -46,8 +46,9 @@
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 /* #define MIDI_TONE_KEYCODE_OCTAVES 2 */
 
-#define COMBO_VARIABLE_LEN
+// #define COMBO_VARIABLE_LEN
 /* #define COMBO_COUNT 13 */
+#undef COMBO_COUNT
 #undef COMBO_TERM
 #define COMBO_TERM 20
 // Set the mouse settings to a comfortable speed/accuracy trade-off

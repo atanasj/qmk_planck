@@ -6,6 +6,7 @@ COMB(LGpscln,    OS_LG,       KC_P, KC_SCLN)
 
 // oneshot double-mod-key combos
 COMB(LAGml,      OS_LAG,      KC_M, KC_L)
+COMB(LSGmk,      OS_LSG,      KC_M, KC_K)
 
 // oneshot triple-mod-key combos
 COMB(LCAGji,     OS_LCAG,     KC_J, KC_I)    // for launching apps
