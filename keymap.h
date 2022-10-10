@@ -43,6 +43,34 @@ enum macros {
 // KEY DEF SECTION
 // =============================================================================
 
+
+// // outer row modifiers
+// #define LG_Q LGUI_T(KC_Q)
+// #define LC_A LCTL_T(KC_A)
+// #define LS_Z LSFT_T(KC_Z)
+// #define RG_P RGUI_T(KC_P)
+// #define RC_QUOT LCTL_T(KC_QUOT)
+// #define RS_SLSH RSFT_T(KC_SLSH)
+// #define LAG_ESC  LAG_T(KC_SPC)
+
+// Mouse and window layers
+#define MO_WQ MO(_WQ)
+#define MO_DM MO(_DM)
+
+#define GS_GRV G(S(KC_GRV))
+#define GUI_GRV G(KC_GRV)
+#define CG_D C(G(KC_D))
+
+#define HYP_H HYPR(KC_H)
+#define HYP_I HYPR(KC_I)
+#define HYP_J HYPR(KC_J)
+#define HYP_K HYPR(KC_K)
+#define HYP_L HYPR(KC_L)
+#define HYP_ENT HYPR(KC_ENT)
+
+
+#define LAG_ESC  LAG_T(KC_ESC)
+
 #define LOWER  LT(_LOWER, KC_LSFT)
 #define NUMPAD LT(_NL, KC_SPC)
 // #define FN_LAY LT(_FN, KC_SPC)
@@ -55,6 +83,8 @@ enum macros {
 #define T_NUMB TG(_NL)
 #define T_VIL TG(_VI)
 #define T_MSL TG(_MS)
+
+#define MIDI_ON TG(_MD)
 
 // layer taps keys
 #define L_VI_D LT(_VI, KC_D)
