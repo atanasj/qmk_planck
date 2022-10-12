@@ -1,15 +1,18 @@
 // oneshot single-mod-key combos
 COMB(LSuj,       OS_LS,       KC_U, KC_J)
-COMB(LCik,       OS_LC,       KC_I, KC_K)
+COMB(LCik,       OS_LC,       KC_I, L_FN_K)
 COMB(LAol,       OS_LA,       KC_O, KC_L)
 COMB(LGpscln,    OS_LG,       KC_P, KC_SCLN)
 
 // oneshot double-mod-key combos
 COMB(LAGml,      OS_LAG,      KC_M, KC_L)
-COMB(LSGmk,      OS_LSG,      KC_M, KC_K)
+COMB(LAGfe,      OS_LAG,      L_MS_E, KC_F)
+COMB(LSGmk,      OS_LSG,      KC_M, L_FN_K)
+COMB(LSCdotl,    OS_LSC,      KC_DOT, KC_L)
+COMB(LACcomk,    OS_LAC,      KC_COMM, L_FN_K)
 
 // oneshot triple-mod-key combos
 COMB(LCAGji,     OS_LCAG,     KC_J, KC_I)    // for launching apps
 
 // oneshot hyper combo
-COMB(HYPRup,     OS_HYPR,     KC_J, KC_K, KC_L)
+COMB(HYPRup,     OS_HYPR,     KC_J, L_FN_K, KC_L)

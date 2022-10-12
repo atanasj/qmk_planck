@@ -85,9 +85,9 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 #include "togg.def"
     }
 
-    // Allow user overrides per keymap
+// Allow user overrides per keymap
 #if __has_include("inject.h")
-# include "inject.h"
+#    include "inject.h"
 #endif
 }
 #undef COMB

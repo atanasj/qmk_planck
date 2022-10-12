@@ -42,7 +42,10 @@
 // Limits the max. amount of layers to 8 to save firmware memory.
 /* #define LAYER_STATE_8BIT */
 
-#define MIDI_ADVANCED
+#ifdef MIDI_ENABLE
+#    define MIDI_ADVANCED
+#endif
+
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 /* #define MIDI_TONE_KEYCODE_OCTAVES 2 */
 

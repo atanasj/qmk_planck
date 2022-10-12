@@ -1,3 +1,5 @@
+// Copyright 2021 Atanas Janackovski (@atanasj)
+
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
@@ -26,66 +28,61 @@ bool process_record_secrets(uint16_t keycode, keyrecord_t *record) {
 // =============================================================================
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+//  =======================LEFT=========================      ======================RIGHT============================
 [_BL] = LAYOUT_planck_mit(
-    T_G_TAB, KC_Q,     WIND_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    T_G_BSP,
-    T_C_ESC, KC_A,     KC_S,    L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, T_C_QUO,
-    KC_LSPO, KC_Z,     KC_X,    KC_C,     KC_V,   KC_B,    KC_N,    KC_M,   KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER,   LAG_ESC,  NUMPAD, T_A_SPC,          FN_LAY, OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
-),
-[_SL] = LAYOUT_planck_mit(
-    T_G_TAB, KC_Q,     WIND_W,  L_MS_E,   KC_R,   KC_T,    KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    T_G_BSP,
-    T_C_ESC, KC_A,     KC_S,    L_VI_D,   KC_F,   KC_G,    KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, T_C_QUO,
-    KC_LSPO, KC_Z,     KC_X,    KC_C,     KC_V,   KC_B,    KC_N,    KC_M,   KC_COMM, KC_DOT,  TD_HELP, KC_RSFT,
-    OS_HYPR, M_GC_ESC, LOWER,   LAG_ESC,  NUMPAD, KC_UNDS,          FN_LAY, OS_LCAG, XXXXXXX, XXXXXXX, T_SG_EN
+    LG_Q,    WIND_W,  L_MS_E,  KC_R,    KC_T,    XXXXXXX,     XXXXXXX, KC_Y,    KC_U,    KC_I,    KC_O,     RG_P,
+    LC_A,    KC_S,    L_VI_D,  KC_F,    KC_G,    XXXXXXX,     XXXXXXX, KC_H,    KC_J,    L_FN_K,  KC_L,     RC_QUOT,
+    LS_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX,     XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,   RS_SLSH,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, NUMPAD,  XXXXXXX,              T_A_SPC, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX
 ),
 [_NL] = LAYOUT_planck_mit(
-    _______, XXXXXXX, XXXXXXX, _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_7,   KC_8,    KC_9,    KC_EQL,  _______,
-    _______, KC_LGUI, KC_LALT, _______,  T_SHDOT, XXXXXXX, XXXXXXX, KC_4,   KC_5,    KC_6,    KC_MINS, _______,
-    _______, XXXXXXX, T_NUMB,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, KC_1,   KC_2,    KC_3,    KC_PSLS, XXXXXXX,
-    _______, XXXXXXX, _______, _______,  _______, KC_0,             KC_SPC, _______, XXXXXXX, XXXXXXX, _______
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,     KC_EQL,
+    KC_LGUI, KC_LALT, _______, T_SHDOT, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,     KC_MINS,
+    XXXXXXX, T_NUMB,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,     KC_PSLS,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,              KC_0,    _______, XXXXXXX, XXXXXXX,  XXXXXXX
  ),
 [_VI] = LAYOUT_planck_mit(
-    _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   XXXXXXX, T_SNAK,
-    _______, KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_F19,  _______,
-    _______, _______, T_VIL,   _______, _______, _______, DW_BKWD, KC_BSPC, KC_DEL,  DW_FRWD,  TD_DEL,  _______,
-    _______, _______, _______, _______, _______, _______,          _______, _______, _______,  _______, _______
+    _______, _______, _______, _______, _______, XXXXXXX,     XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   T_SNAK,
+    KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LCTL, XXXXXXX,     XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_F19,
+    _______, T_VIL,   _______, KC_LEAD, _______, XXXXXXX,     XXXXXXX, DW_BKWD, KC_BSPC, KC_DEL,  DW_FRWD,  TD_DEL,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,              _______, _______, XXXXXXX, XXXXXXX,  XXXXXXX
 ),
 [_WL] = LAYOUT_planck_mit(
-    _______, MO_WQ,   _______, XXXXXXX, MO_DM,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN5, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYP_H,   HYP_J,   HYP_K,   HYP_L,   XXXXXXX, _______,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYP_I,   XXXXXXX, _______, _______, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, HYP_ENT,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
+    MO_WQ,   _______, XXXXXXX, MO_DM,   _______, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN5,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_H,   HYP_J,   HYP_K,   HYP_L,    XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_I,   XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,              HYP_ENT, _______, XXXXXXX, XXXXXXX,  XXXXXXX
  ),
 [_WQ] = LAYOUT_planck_mit(
-    _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_BTN7, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, GS_GRV,  GUI_TAB, SGUI_TAB, GUI_GRV, XXXXXXX, _______,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,  _______, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, _______
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN7,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, GS_GRV,  GUI_TAB, SG_TAB,  GUI_GRV,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,              XXXXXXX, _______, XXXXXXX, XXXXXXX,  XXXXXXX
  ),
 [_DM] = LAYOUT_planck_mit(
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_REC1, DM_PLY1, DM_REC2, DM_PLY2, XXXXXXX, _______,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_RSTP,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, DM_REC1, DM_PLY1, DM_REC2, DM_PLY2,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,              DM_RSTP, _______, XXXXXXX, XXXXXXX,  XXXXXXX
  ),
 [_MS] = LAYOUT_planck_mit(
-    KC_ACL0, KC_ACL1, KC_ACL2, _______, KC_R,    XXXXXXX, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
-    _______, MS_GUIA, MS_ALTS, _______, MS_SFTF, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, _______,
-    _______, XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CG_D,    KC_BTN3, KC_BTN2, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
+    KC_ACL1, KC_ACL2, _______, KC_R,    XXXXXXX, KC_ACL0,     XXXXXXX, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R,  XXXXXXX,
+    MS_GUIA, MS_ALTS, _______, MS_SFTF, XXXXXXX, XXXXXXX,     XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  XXXXXXX,
+    XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, CG_D,    KC_BTN3, KC_BTN2,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,              KC_BTN1, _______, XXXXXXX, XXXXXXX,  XXXXXXX
  ),
 [_FN] = LAYOUT_planck_mit(
-    SUSPEND, KC_PIPE, KC_LCBR, KC_RCBR, KC_BSLS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DEBUG,   RGB_TOG,
-    KC_BRIU, KC_TILD, KC_LBRC, KC_RBRC, KC_GRV,  XXXXXXX, XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,
-    KC_BRID, KC_COLN, KC_LPRN, KC_RPRN, KC_SCLN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LSFT,
-    _______, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,          _______, XXXXXXX, RGB_VAI, RGB_VAD, QK_BOOT
+    KC_PIPE, KC_LCBR, KC_RCBR, KC_BSLS, SUSPEND, XXXXXXX,     XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, DEBUG,    XXXXXXX,
+    KC_COLN, KC_LPRN, KC_RPRN, KC_SCLN, KC_BRIU, XXXXXXX,     XXXXXXX, KC_LSFT, KC_LCTL, _______, KC_LALT,  KC_LGUI,
+    KC_TILD, KC_LBRC, KC_RBRC, KC_GRV,  KC_BRID, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,              XXXXXXX, _______, XXXXXXX, XXXXXXX,  XXXXXXX
 ),
-[_LOWER] = LAYOUT_planck_mit(
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, _______, _______, _______, KC_MPLY, _______,
-    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, MU_ON,   MU_OFF,  MU_MOD,
-    _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_LALT,          XXXXXXX, MIDI_ON, AU_ON,   AU_OFF,  _______
-),
+// [_LOWER] = LAYOUT_planck_mit(
+//     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,       _______, _______, _______, _______, KC_MPLY, _______,
+//     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
+//     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_MUTE, XXXXXXX, MU_ON,   MU_OFF,  MU_MOD,
+//     _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_LALT,              XXXXXXX, MIDI_ON, AU_ON,   AU_OFF,  _______
+// ),
 // NOTE quantum/process_keycode/process_midi.c
 #ifdef MIDI_ENABLE
 [_MD] = LAYOUT_planck_mit(
@@ -125,7 +122,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_TAB);
             }
             break;
-        case SGUI_TAB:
+        case SG_TAB:
             if (record->event.pressed) {
                 if (!is_alt_tab_active) {
                     is_alt_tab_active = true;
@@ -199,16 +196,17 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case L_MS_E:
     case L_VI_D:
+    case L_FN_K:
     case WIND_W:
     case NUMPAD:
         return 225;
-    case SL_HLP:
+    case LG_Q:
+    case LS_Z:
+    case RG_P:
+    case RC_QUOT:
+    case RS_SLSH:
+    case LC_A:
         return 150;
-    case KC_LSPO:
-    case KC_RSPC:
-        return 115;
-    case SEMI_:
-        return 155;
     case FN_LAY:
         return 35;
     default:
@@ -224,7 +222,14 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case L_MS_E:
         case L_VI_D:
+        case L_FN_K:
         case WIND_W:
+        case LG_Q:
+        case LC_A:
+        case LS_Z:
+        case RG_P:
+        case RC_QUOT:
+        case RS_SLSH:
             return true;
         default:
             return false;
@@ -239,8 +244,15 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case L_MS_E:
         case L_VI_D:
+        case L_FN_K:
         case WIND_W:
         case NUMPAD:
+        case LG_Q:
+        case LC_A:
+        case LS_Z:
+        case RG_P:
+        case RC_QUOT:
+        case RS_SLSH:
             return true;
         default:
             return false;
@@ -254,8 +266,6 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // case T_A_SPC:
-        case KC_LSPO:
-        case KC_RSFT:
         case NUMPAD:
             // Immediately select the hold action when another key is pressed.
             return true;
@@ -269,11 +279,16 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 // MOD TAP INTERRUP PER KEY SECTION
 // =============================================================================
 
+// but all keys that are problematic with rolling keystrokes here
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LG_Q:
+        case LC_A:
+        // case LS_Z:
+        case RG_P:
+        case RC_QUOT:
+        // case RS_SLSH:
         case T_A_SPC:
-        case KC_LSPO:
-        case KC_RSFT:
             return true;
         default:
             return false;
@@ -297,16 +312,17 @@ void matrix_scan_user(void) {
         leading = false;
         leader_end();
         // R section
-        SEQ_TWO_KEYS(KC_R, KC_SCLN) {
-            // needs to a as semi colon is a tap dance key
-            // need to use bscp as first enters semi colon
+        SEQ_TWO_KEYS(KC_R, KC_QUOT) {
             SEND_STRING(" <-");
+        }
+        SEQ_TWO_KEYS(KC_R, KC_DOT) {
+            SEND_STRING(" |>");
         }
         SEQ_TWO_KEYS(KC_R, KC_P) {
             SEND_STRING(" %>%");
         }
         SEQ_TWO_KEYS(KC_R, KC_I) {
-            SEND_STRING(" %in% ");
+            SEND_STRING(" %in%");
         }
         // Signature section
         // signature, smile

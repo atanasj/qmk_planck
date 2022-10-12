@@ -20,7 +20,7 @@ enum planck_layers {
   _DM,
   _MS,
   _FN,
-  _LOWER,
+  // _LOWER,
   _MD
 };
 
@@ -31,7 +31,7 @@ enum planck_layers {
 enum macros {
     SUSPEND = SAFE_RANGE,
     GUI_TAB,
-    SGUI_TAB,
+    SG_TAB,
     KC_SECRET_1,
     KC_SECRET_2,
     KC_SECRET_3,
@@ -43,15 +43,14 @@ enum macros {
 // KEY DEF SECTION
 // =============================================================================
 
-
-// // outer row modifiers
-// #define LG_Q LGUI_T(KC_Q)
-// #define LC_A LCTL_T(KC_A)
-// #define LS_Z LSFT_T(KC_Z)
-// #define RG_P RGUI_T(KC_P)
-// #define RC_QUOT LCTL_T(KC_QUOT)
-// #define RS_SLSH RSFT_T(KC_SLSH)
-// #define LAG_ESC  LAG_T(KC_SPC)
+// outer row modifiers
+#define LG_Q LGUI_T(KC_Q)
+#define LC_A LCTL_T(KC_A)
+#define LS_Z LSFT_T(KC_Z)
+#define RG_P RGUI_T(KC_P)
+#define RC_QUOT LCTL_T(KC_QUOT)
+#define RS_SLSH RSFT_T(KC_SLSH)
+#define LAG_ESC  LAG_T(KC_SPC)
 
 // Mouse and window layers
 #define MO_WQ MO(_WQ)
@@ -68,27 +67,19 @@ enum macros {
 #define HYP_L HYPR(KC_L)
 #define HYP_ENT HYPR(KC_ENT)
 
-
-#define LAG_ESC  LAG_T(KC_ESC)
-
+// layer taps
 #define LOWER  LT(_LOWER, KC_LSFT)
-#define NUMPAD LT(_NL, KC_SPC)
-// #define FN_LAY LT(_FN, KC_SPC)
+#define NUMPAD LT(_NL, KC_ESC)
 #define FN_LAY MO(_FN)
+#define L_FN_K LT(_FN, KC_K)
 #define L_VI_D LT(_VI, KC_D)
 #define L_MS_E LT(_MS, KC_E)
 #define WIND_W LT(_WL, KC_W)
-#define M_NUMP MO(_NL)
 #define T_SNAK TG(_SL)
 #define T_NUMB TG(_NL)
 #define T_VIL TG(_VI)
 #define T_MSL TG(_MS)
-
 #define MIDI_ON TG(_MD)
-
-// layer taps keys
-#define L_VI_D LT(_VI, KC_D)
-#define L_MS_E LT(_MS, KC_E)
 
 // single mod keys
 #define OS_LS  OSM(MOD_LSFT)

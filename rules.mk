@@ -10,7 +10,7 @@ endif
 
 COMMAND_ENABLE = no
 CONSOLE_ENABLE = no
-LTO_ENABLE = no					# yes for bm40rgbhs
+LTO_ENABLE = no # yes for bm40rgbhs
 
 VPATH  += keyboards/planck/keymaps/atanasj/combos/
 
@@ -19,7 +19,7 @@ TAP_DANCE_ENABLE = yes
 LEADER_ENABLE = yes
 UNICODE_ENABLE = yes
 NKRO_ENABLE = yes
-AUDIO_ENABLE = yes				# no for bm40rgbhs
-MIDI_ENABLE = yes
+AUDIO_ENABLE = yes # no for bm40rgbhs
+MIDI_ENABLE = no
 DYNAMIC_MACRO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
