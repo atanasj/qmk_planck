@@ -23,3 +23,4 @@ AUDIO_ENABLE = yes # no for bm40rgbhs
 MIDI_ENABLE = no
 DYNAMIC_MACRO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
+RGBLIGHT_ENABLE = no       # Enable keyboard RGB underglow

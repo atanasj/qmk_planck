@@ -30,58 +30,58 @@ bool process_record_secrets(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  =======================LEFT=========================      ======================RIGHT============================
 [_BL] = LAYOUT_planck_grid(
-    LG_Q,    WIND_W,  L_MS_E,  KC_R,    KC_T,    XXXXXXX,     XXXXXXX, KC_Y,    KC_U,    KC_I,    KC_O,     RG_P,
-    LC_A,    KC_S,    L_VI_D,  KC_F,    KC_G,    XXXXXXX,     XXXXXXX, KC_H,    KC_J,    L_FN_K,  KC_L,     RC_QUOT,
-    LS_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX,     XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,   RS_SLSH,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, NUMPAD,  XXXXXXX,     XXXXXXX, T_A_SPC, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX
+    LG_Q,    WIND_W,  L_MS_E,  KC_R,    KC_T,    XXXXXXX,     XXXXXXX, KC_Y,    KC_U,    KC_I,    KC_O,    RG_P,
+    LC_A,    KC_S,    L_VI_D,  KC_F,    KC_G,    XXXXXXX,     XXXXXXX, KC_H,    KC_J,    L_FN_K,  KC_L,    RC_QUOT,
+    LS_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX,     XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  RS_SLSH,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, NUMPAD,  XXXXXXX,     XXXXXXX, T_A_SPC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 [_NL] = LAYOUT_planck_grid(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,     KC_EQL,
-    KC_LGUI, KC_LALT, _______, T_SHDOT, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,     KC_MINS,
-    XXXXXXX, T_NUMB,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,     KC_PSLS,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, KC_0,    _______, XXXXXXX, XXXXXXX,  XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_EQL,
+    KC_LGUI, KC_LALT, _______, T_SHDOT, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_MINS,
+    XXXXXXX, T_NUMB,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_PSLS,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, KC_0,    _______, XXXXXXX, XXXXXXX, XXXXXXX
  ),
 [_VI] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, XXXXXXX,     XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   T_SNAK,
-    KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, XXXXXXX,     XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_F19,
-    _______, T_VIL,   _______, KC_LCTL, _______, XXXXXXX,     XXXXXXX, DW_BKWD, KC_BSPC, KC_DEL,  DW_FRWD,  TD_DEL,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, _______, _______, XXXXXXX, XXXXXXX,  XXXXXXX
+    _______, _______, _______, _______, _______, XXXXXXX,     XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  T_SNAK,
+    KC_LCMD, KC_LALT, _______, KC_LSFT, KC_LEAD, XXXXXXX,     XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_F19,
+    _______, T_VIL,   _______, KC_LCTL, _______, XXXXXXX,     XXXXXXX, DW_BKWD, KC_BSPC, KC_DEL,  DW_FRWD, TD_DEL,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 [_WL] = LAYOUT_planck_grid(
-    MO_WQ,   _______, XXXXXXX, MO_DM,   _______, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN5,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_H,   HYP_J,   HYP_K,   HYP_L,    XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_I,   XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_ENT, _______, XXXXXXX, XXXXXXX,  XXXXXXX
+    MO_WQ,   _______, XXXXXXX, MO_DM,   _______, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN5, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_H,   HYP_J,   HYP_K,   HYP_L,   XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_I,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, HYP_ENT, _______, XXXXXXX, XXXXXXX, XXXXXXX
  ),
 [_WQ] = LAYOUT_planck_grid(
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN7,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, GS_GRV,  GUI_TAB, SG_TAB,  GUI_GRV,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX,  XXXXXXX
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN7, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, GS_GRV,  GUI_TAB, SG_TAB,  GUI_GRV, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX
  ),
 [_DM] = LAYOUT_planck_grid(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, DM_REC1, DM_PLY1, DM_REC2, DM_PLY2,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, DM_RSTP, _______, XXXXXXX, XXXXXXX,  XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, DM_REC1, DM_PLY1, DM_REC2, DM_PLY2, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, DM_RSTP, _______, XXXXXXX, XXXXXXX, XXXXXXX
  ),
 [_MS] = LAYOUT_planck_grid(
-    KC_ACL1, KC_ACL2, _______, KC_R,    XXXXXXX, KC_ACL0,     XXXXXXX, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R,  XXXXXXX,
-    MS_GUIA, MS_ALTS, _______, MS_SFTF, XXXXXXX, XXXXXXX,     XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  XXXXXXX,
-    XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, CG_D,    KC_BTN3, KC_BTN2,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, KC_BTN1, _______, XXXXXXX, XXXXXXX,  XXXXXXX
+    KC_ACL1, KC_ACL2, _______, KC_R,    XXXXXXX, KC_ACL0,     XXXXXXX, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX,
+    MS_GUIA, MS_ALTS, _______, MS_SFTF, XXXXXXX, XXXXXXX,     XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX,
+    XXXXXXX, T_MSL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, CG_D,    KC_BTN3, KC_BTN2, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, KC_BTN1, _______, XXXXXXX, XXXXXXX, XXXXXXX
  ),
 [_FN] = LAYOUT_planck_grid(
-    KC_PIPE, KC_LCBR, KC_RCBR, KC_BSLS, SUSPEND, XXXXXXX,     XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, DEBUG,    XXXXXXX,
-    KC_COLN, KC_LPRN, KC_RPRN, KC_SCLN, KC_BRIU, XXXXXXX,     XXXXXXX, KC_LSFT, KC_LCTL, _______, KC_LALT,  KC_LGUI,
-    KC_TILD, KC_LBRC, KC_RBRC, KC_GRV,  KC_BRID, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX,  XXXXXXX
+    KC_PIPE, KC_LCBR, KC_RCBR, KC_BSLS, SUSPEND, XXXXXXX,     XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, DEBUG,   XXXXXXX,
+    KC_COLN, KC_LPRN, KC_RPRN, KC_SCLN, KC_BRIU, XXXXXXX,     XXXXXXX, KC_LSFT, KC_LCTL, _______, KC_LALT, KC_LGUI,
+    KC_TILD, KC_LBRC, KC_RBRC, KC_GRV,  KC_BRID, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 // [_LOWER] = LAYOUT_planck_grid(
-//     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,       _______, _______, _______, _______, KC_MPLY, _______,
-//     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
-//     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_MUTE, XXXXXXX, MU_ON,   MU_OFF,  MU_MOD,
-//     _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_LALT,     KC_LALT, XXXXXXX, MIDI_ON, AU_ON,   AU_OFF,  _______
+//     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,    _______, _______, _______, _______, KC_MPLY, _______,
+//     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,   KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
+//     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, KC_MUTE, XXXXXXX, MU_ON,   MU_OFF,  MU_MOD,
+//     _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_LALT,  KC_LALT, XXXXXXX, MIDI_ON, AU_ON,   AU_OFF,  _______
 // ),
 // NOTE quantum/process_keycode/process_midi.c
 #ifdef MIDI_ENABLE
@@ -140,26 +140,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case SUSPEND:
             if (record->event.pressed) {
+                #if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
                 if (is_led_on) {
                     is_led_on = false;
                     rgblight_disable();
                     SEND_STRING(SS_LCTL(SS_LGUI("q")) SS_DELAY(999) SS_TAP(X_ESC));
                 }
+                #else
+                    SEND_STRING(SS_LCTL(SS_LGUI("q")) SS_DELAY(999) SS_TAP(X_ESC));
+                #endif
             }
             return true;
         default:
             if (record->event.pressed) {
+                #if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
                 if (!is_led_on) {
                     is_led_on = true;
                     rgblight_enable();
                 }
+                #endif
             }
     }
     // return true;
     return process_record_secrets(keycode, record);
 }
 
-
+#if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
 // Redefine with lower delay
 void led_blink(void) {
     rgblight_toggle();
@@ -187,7 +193,22 @@ void dynamic_macro_record_end_user(int8_t direction) {
     led_blink();
     PLAY_SONG(tone_colemak);
 }
+#else
 
+void dynamic_macro_record_start_user(void) {
+    PLAY_SONG(tone_qwerty);
+
+}
+
+void dynamic_macro_record_key_user(int8_t direction, keyrecord_t *record) {
+    PLAY_SONG(tone_dvorak);
+
+}
+
+void dynamic_macro_record_end_user(int8_t direction) {
+    PLAY_SONG(tone_colemak);
+}
+#endif
 // =============================================================================
 // TAPPING TERM PER KEY SECTION
 // =============================================================================
