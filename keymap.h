@@ -20,8 +20,8 @@ enum planck_layers {
   _DM,
   _MS,
   _FN,
-  // _LOWER,
-  _MD
+  _MD,
+  _SC
 };
 
 // =============================================================================
@@ -32,11 +32,11 @@ enum macros {
     SUSPEND = SAFE_RANGE,
     GUI_TAB,
     SG_TAB,
-    KC_SECRET_1,
-    KC_SECRET_2,
-    KC_SECRET_3,
-    KC_SECRET_4,
-    KC_SECRET_5,
+    SECRET1,
+    SECRET2,
+    SECRET3,
+    SECRET4,
+    SECRET5,
 };
 
 // =============================================================================
