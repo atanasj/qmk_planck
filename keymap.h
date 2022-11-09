@@ -32,6 +32,7 @@ enum macros {
     SUSPEND = SAFE_RANGE,
     GUI_TAB,
     SG_TAB,
+    NUMB,
     SECRET1,
     SECRET2,
     SECRET3,
